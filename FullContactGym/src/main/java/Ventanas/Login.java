@@ -6,12 +6,7 @@ package Ventanas;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -41,7 +36,7 @@ public class Login extends javax.swing.JFrame {
         jLabelClave = new javax.swing.JLabel();
         jPasswordClave = new javax.swing.JPasswordField();
         JButtonIniciarSesion = new javax.swing.JButton();
-        jButtonRegistrarse = new javax.swing.JButton();
+        jToggleButtonRegistrate = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,8 +66,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButtonRegistrarse.setText("Registrarse");
-        jButtonRegistrarse.setToolTipText("");
+        jToggleButtonRegistrate.setText("Registrate");
+        jToggleButtonRegistrate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonRegistrateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -83,8 +82,8 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(JButtonIniciarSesion)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonRegistrarse))
+                        .addGap(33, 33, 33)
+                        .addComponent(jToggleButtonRegistrate, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabelClave, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -94,7 +93,7 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabelID, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(42, 42, 42)
                             .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +109,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JButtonIniciarSesion)
-                    .addComponent(jButtonRegistrarse))
+                    .addComponent(jToggleButtonRegistrate))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -143,52 +142,51 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordClaveActionPerformed
 
     private void JButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonIniciarSesionActionPerformed
-        String enteredID = jTextFieldID.getText();
-        String enteredClave = new String(jPasswordClave.getPassword());
-        List<Map<String, String>> userData = loadUserData();
+        String inputID = jTextFieldID.getText();
+        String inputClave = new String(jPasswordClave.getPassword());
+        boolean loginSuccess = false;
+        String role = "";
 
-        boolean authenticated = false;
-        String userRole = "";
-
-        for (Map<String, String> user : userData) {
-            if (user.get("id").equals(enteredID) && user.get("clave").equals(enteredClave)) {
-                authenticated = true;
-                userRole = user.get("rol");
-                break;
-            }
-        }
-
-        if (authenticated) {
-            if ("administrador".equals(userRole)) {
-                JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso como Administrador.");
-                // Lógica adicional para el administrador
-            } else if ("usuario".equals(userRole)) {
-                JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso como Usuario.");
-                // Lógica adicional para el usuario
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "ID o Clave incorrectos. Por favor, intente de nuevo.");
-        }
-    }//GEN-LAST:event_JButtonIniciarSesionActionPerformed
-
-    private List<Map<String, String>> loadUserData() {
-        List<Map<String, String>> userData = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
             String line;
-            String[] headers = br.readLine().split(";");
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(";");
-                Map<String, String> user = new HashMap<>();
-                for (int i = 0; i < headers.length; i++) {
-                    user.put(headers[i], values[i]);
+                String[] fields = line.split(";");
+                String id = fields[0];
+                String clave = fields[1];
+                String rol = fields[2];
+
+                if (id.equals(inputID) && clave.equals(inputClave)) {
+                    loginSuccess = true;
+                    role = rol;
+                    break;
                 }
-                userData.add(user);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return userData;
-    }
+
+        if (loginSuccess) {
+            if (role.equals("administrador")) {
+                JOptionPane.showMessageDialog(this, "Bienvenido Administrador");
+            } else if (role.equals("usuario")) {
+                JOptionPane.showMessageDialog(this, "Bienvenido Usuario");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "ID o Clave incorrectos");
+        }
+    }//GEN-LAST:event_JButtonIniciarSesionActionPerformed
+
+    private void jToggleButtonRegistrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRegistrateActionPerformed
+        // Crear una instancia de la ventana Registrar
+        Registrar registrarFrame = new Registrar();
+        registrarFrame.setVisible(true);
+        
+        // Cerrar o esconder la ventana Login
+        this.dispose();
+    }//GEN-LAST:event_jToggleButtonRegistrateActionPerformed
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -227,11 +225,11 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtonIniciarSesion;
-    private javax.swing.JButton jButtonRegistrarse;
     private javax.swing.JLabel jLabelClave;
     private javax.swing.JLabel jLabelID;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordClave;
     private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JToggleButton jToggleButtonRegistrate;
     // End of variables declaration//GEN-END:variables
 }

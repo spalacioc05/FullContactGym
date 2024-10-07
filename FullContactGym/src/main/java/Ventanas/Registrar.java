@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
 package Ventanas;
 import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
@@ -192,7 +193,12 @@ public class Registrar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
-        // TODO add your handling code here:
+        // Crear una instancia de la ventana Registrar
+        Login loginFrame = new Login();
+        loginFrame.setVisible(true);
+        
+        // Cerrar o esconder la ventana Login
+        this.dispose();
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     private void appendToCSV(String filePath, String data) {

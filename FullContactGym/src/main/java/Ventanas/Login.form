@@ -51,8 +51,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="JButtonIniciarSesion" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButtonRegistrarse" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="jToggleButtonRegistrate" min="-2" pref="115" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
@@ -67,7 +67,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,7 +87,7 @@
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="JButtonIniciarSesion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonRegistrarse" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jToggleButtonRegistrate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="71" max="32767" attributes="0"/>
               </Group>
@@ -132,11 +132,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JButtonIniciarSesionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonRegistrarse">
+        <Component class="javax.swing.JToggleButton" name="jToggleButtonRegistrate">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Registrarse"/>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="text" type="java.lang.String" value="Registrate"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonRegistrateActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
