@@ -1,0 +1,14 @@
+﻿id;clave;rol;nombre;correo;tipoMembresia;fechaInicio;fechaFinal;montoPagar;estado
+1;12345;administrador;Carlos Pérez;carlos.perez@gimnacio.com;Oro;01/01/2024;31/12/2024;1200.00;activo
+2;abcde;usuario;Ana Gómez;ana.gomez@ejemplo.com;Plata;15/02/2024;15/08/2024;600.00;activo
+3;54321;usuario;Luis Torres;luis.torres@ejemplo.com;Bronce;01/03/2024;01/09/2024;300.00;inactivo
+4;67890;administrador;María Ruiz;maria.ruiz@gimnacio.com;Oro;10/11/2023;10/11/2024;1200.00;activo
+5;qwerty;usuario;Pedro Sánchez;pedro.sanchez@ejemplo.com;Plata;01/04/2024;01/10/2024;600.00;inactivo
+6;asdfgh;usuario;Lucía Fernández;lucia.fernandez@ejemplo.com;Bronce;05/05/2024;05/11/2024;300.00;activo
+7;zxcvb;usuario;Raúl Martínez;raul.martinez@ejemplo.com;Oro;01/06/2024;01/06/2025;1200.00;activo
+8;09876;usuario;Sara López;sara.lopez@ejemplo.com;Plata;01/07/2024;01/01/2025;600.00;activo
+9;lkjhg;usuario;Laura Díaz;laura.diaz@ejemplo.com;Bronce;15/10/2023;15/04/2024;300.00;inactivo
+10;poiuyt;administrador;Andrés Mejía;andres.mejia@gimnacio.com;Oro;01/08/2024;01/08/2025;1200.00;activo
+1234;3255;usuario;34fdhn;dfhd;;;;;activo
+123456;soyojeroso;usuario;Mapache Peludo;v.mapache@udea.edu.co;;;;;activo
+238784;kuwhdyig3;usuario;gfjkszf;hkjabfdf;;;;;activo
