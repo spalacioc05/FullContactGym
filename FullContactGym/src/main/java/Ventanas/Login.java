@@ -3,6 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventanas;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -134,9 +143,52 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordClaveActionPerformed
 
     private void JButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonIniciarSesionActionPerformed
-        // TODO add your handling code here:
+        String enteredID = jTextFieldID.getText();
+        String enteredClave = new String(jPasswordClave.getPassword());
+        List<Map<String, String>> userData = loadUserData();
+
+        boolean authenticated = false;
+        String userRole = "";
+
+        for (Map<String, String> user : userData) {
+            if (user.get("id").equals(enteredID) && user.get("clave").equals(enteredClave)) {
+                authenticated = true;
+                userRole = user.get("rol");
+                break;
+            }
+        }
+
+        if (authenticated) {
+            if ("administrador".equals(userRole)) {
+                JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso como Administrador.");
+                // Lógica adicional para el administrador
+            } else if ("usuario".equals(userRole)) {
+                JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso como Usuario.");
+                // Lógica adicional para el usuario
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "ID o Clave incorrectos. Por favor, intente de nuevo.");
+        }
     }//GEN-LAST:event_JButtonIniciarSesionActionPerformed
 
+    private List<Map<String, String>> loadUserData() {
+        List<Map<String, String>> userData = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
+            String line;
+            String[] headers = br.readLine().split(";");
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(";");
+                Map<String, String> user = new HashMap<>();
+                for (int i = 0; i < headers.length; i++) {
+                    user.put(headers[i], values[i]);
+                }
+                userData.add(user);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return userData;
+    }
     /**
      * @param args the command line arguments
      */
