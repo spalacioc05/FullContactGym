@@ -21,6 +21,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -207,6 +209,23 @@ public class Login extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "ID o Clave incorrectos");
         }
+        
+        Registro registrarFrame = new Registro();
+        Actualizar actualizarFrame = new Actualizar();
+        Membresia membresiaFrame = new Membresia();
+        ListaClientes listaClientesFrame = new ListaClientes();
+        ListaFactura listaFacturaFrame = new ListaFactura();
+        Ayuda ayudaFrame = new Ayuda();
+        Index indexFrame = new Index();
+        
+        registrarFrame.setAutenficar(inputID, role);
+        actualizarFrame.setAutenficar(inputID, role);
+        membresiaFrame.setAutenficar(inputID, role);
+        listaClientesFrame.setAutenficar(inputID, role);
+        listaFacturaFrame.setAutenficar(inputID, role);
+        ayudaFrame.setAutenficar(inputID, role);
+        indexFrame.setAutenficar(inputID, role);
+        
     }//GEN-LAST:event_JButtonIniciarSesionActionPerformed
 
     private void JButtonRegistrateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRegistrateMousePressed

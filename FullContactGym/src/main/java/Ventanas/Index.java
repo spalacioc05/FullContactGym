@@ -16,6 +16,14 @@ public class Index extends javax.swing.JFrame {
     public Index() {
         initComponents();
     }
+    
+    private String idUniversal;
+    private String rolUniversal;
+    
+    public void setAutenficar(String idUniversal, String rolUniversal) {
+        this.idUniversal = idUniversal;
+        this.rolUniversal = rolUniversal;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,9 +89,19 @@ public class Index extends javax.swing.JFrame {
         jMenuGestiones.add(jMenuItem3);
 
         jMenuItem4.setText("Actualizar datos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenuGestiones.add(jMenuItem4);
 
         jMenuItem5.setText("Comprar membresia");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenuGestiones.add(jMenuItem5);
 
         jMenuBar1.add(jMenuGestiones);
@@ -92,12 +110,27 @@ public class Index extends javax.swing.JFrame {
         jMenuReportes.setPreferredSize(new java.awt.Dimension(100, 22));
 
         jMenuItem1.setText("Lista de clientes");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenuReportes.add(jMenuItem1);
 
         jMenuItem7.setText("Listar Facturas");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenuReportes.add(jMenuItem7);
 
         jMenuItem6.setText("Ayuda");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenuReportes.add(jMenuItem6);
 
         jMenuBar1.add(jMenuReportes);
@@ -125,10 +158,35 @@ public class Index extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // Crear una instancia de la ventana Registro
+
         Login loginFrame = new Login();
         loginFrame.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Actualizar actualizarFrame = new Actualizar();
+        actualizarFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        Membresia membresiaFrame = new Membresia();
+        membresiaFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        ListaClientes listaClientesFrame = new ListaClientes();
+        listaClientesFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        ListaFactura listaFacturaFrame = new ListaFactura();
+        listaFacturaFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        Ayuda ayudaFrame = new Ayuda();
+        ayudaFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
