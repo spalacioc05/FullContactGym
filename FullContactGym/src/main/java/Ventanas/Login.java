@@ -210,8 +210,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_JButtonIniciarSesionActionPerformed
 
     private void JButtonRegistrateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRegistrateMousePressed
-        // Crear una instancia de la ventana Registrar
-        Registrar registrarFrame = new Registrar();
+        // Crear una instancia de la ventana Registro
+        Registro registrarFrame = new Registro();
         registrarFrame.setVisible(true);
         
         // Cerrar o esconder la ventana Login
