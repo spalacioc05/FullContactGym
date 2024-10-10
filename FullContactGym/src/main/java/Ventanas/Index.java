@@ -122,18 +122,12 @@ public class Index extends javax.swing.JFrame {
         // Crear una instancia de la ventana Registro
         Registro registrarFrame = new Registro();
         registrarFrame.setVisible(true);
-        
-        // Cerrar o esconder la ventana Login
-        this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // Crear una instancia de la ventana Registro
         Login loginFrame = new Login();
         loginFrame.setVisible(true);
-        
-        // Cerrar o esconder la ventana Login
-        this.dispose();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**

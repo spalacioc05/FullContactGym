@@ -139,6 +139,11 @@ public class Registro extends javax.swing.JFrame {
         generoBox.setBackground(new java.awt.Color(255, 255, 255));
         generoBox.setForeground(new java.awt.Color(0, 0, 0));
         generoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Género", "Masculino", "Femenino", "Otro" }));
+        generoBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generoBoxActionPerformed(evt);
+            }
+        });
 
         jTextFieldFechaNacimiento.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldFechaNacimiento.setForeground(new java.awt.Color(0, 0, 0));
@@ -305,8 +310,10 @@ public class Registro extends javax.swing.JFrame {
         String nombre = jTextFieldNombre.getText();
         String correo = jTextFieldCorreo.getText();
         String clave = new String(jPasswordFieldClave.getPassword());
+        String genero = generoBox.getSelectedItem().toString();
+        String fechaNacimiento = jTextFieldFechaNacimiento.getText();
 
-        if (id.isEmpty() || nombre.isEmpty() || correo.isEmpty() || clave.isEmpty()) {
+        if (id.isEmpty() || nombre.isEmpty() || correo.isEmpty() || clave.isEmpty() || genero.isEmpty() || fechaNacimiento.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -316,7 +323,7 @@ public class Registro extends javax.swing.JFrame {
             return;
         }
 
-        String newUser = String.format("%s;%s;usuario;%s;%s;;;;;activo", id, clave, nombre, correo);
+        String newUser = String.format("%s,%s,usuario,%s,%s,%s,%s,,,,,,activo", id, clave, nombre, correo, fechaNacimiento, genero);
         appendToCSV("data/basededatos.csv", newUser);
         JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
@@ -324,6 +331,10 @@ public class Registro extends javax.swing.JFrame {
     private void jTextFieldFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFechaNacimientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFechaNacimientoActionPerformed
+
+    private void generoBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_generoBoxActionPerformed
 
     /**
      * @param args the command line arguments

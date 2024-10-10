@@ -183,7 +183,7 @@ public class Login extends javax.swing.JFrame {
         try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] fields = line.split(";");
+                String[] fields = line.split(",");
                 String id = fields[0];
                 String clave = fields[1];
                 String rol = fields[2];
