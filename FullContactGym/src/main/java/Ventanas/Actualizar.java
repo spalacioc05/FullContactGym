@@ -17,8 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class Actualizar extends javax.swing.JFrame {
 
-    private String idUniversal;
-    private String rolUniversal;
+    private String idUniversal = "";
+    private String rolUniversal = "";
     
     public void setAutenficar(String idUniversal, String rolUniversal) {
         this.idUniversal = idUniversal;
@@ -71,6 +71,7 @@ public class Actualizar extends javax.swing.JFrame {
         jButtonBorrar = new javax.swing.JButton();
         jLabelEstadoPago = new javax.swing.JLabel();
         jTextFieldEstadoPago = new javax.swing.JTextField();
+        jButtonDescargarPDF = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -245,6 +246,13 @@ public class Actualizar extends javax.swing.JFrame {
             }
         });
 
+        jButtonDescargarPDF.setText("Descargar en PDF");
+        jButtonDescargarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDescargarPDFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -291,11 +299,7 @@ public class Actualizar extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jTextFieldFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButtonActualizar)
-                                        .addGap(41, 41, 41)
-                                        .addComponent(jButtonBorrar))))
+                                        .addComponent(jTextFieldFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,7 +315,14 @@ public class Actualizar extends javax.swing.JFrame {
                                         .addComponent(jTextFieldMontoPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelFechaNacimiento)
-                                    .addComponent(jTextFieldEstadoPago, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jTextFieldEstadoPago, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(jButtonActualizar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonBorrar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonDescargarPDF)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(263, 263, 263)
@@ -384,7 +395,8 @@ public class Actualizar extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonActualizar)
-                    .addComponent(jButtonBorrar))
+                    .addComponent(jButtonBorrar)
+                    .addComponent(jButtonDescargarPDF))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -569,6 +581,10 @@ public class Actualizar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFechaNacimientoActionPerformed
 
+    private void jButtonDescargarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDescargarPDFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDescargarPDFActionPerformed
+
     private void clearFields() {
         jTextFieldNombre.setText("");
         jTextFieldCorreo.setText("");
@@ -623,6 +639,7 @@ public class Actualizar extends javax.swing.JFrame {
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonDescargarPDF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCorreo;
     private javax.swing.JLabel jLabelEstado;

@@ -19,8 +19,8 @@ public class ListaFactura extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    private String idUniversal;
-    private String rolUniversal;
+    private String idUniversal = "";
+    private String rolUniversal = "";
     
     public void setAutenficar(String idUniversal, String rolUniversal) {
         this.idUniversal = idUniversal;

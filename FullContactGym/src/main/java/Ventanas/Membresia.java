@@ -26,8 +26,8 @@ public class Membresia extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    private String idUniversal;
-    private String rolUniversal;
+    private String idUniversal = "";
+    private String rolUniversal = "";
     
     public void setAutenficar(String idUniversal, String rolUniversal) {
         this.idUniversal = idUniversal;
@@ -181,7 +181,7 @@ public class Membresia extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("- Acceso a Spa");
+        jLabel11.setText("- Acceso a spa");
         jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel12.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
@@ -196,7 +196,7 @@ public class Membresia extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("  Personalizados");
+        jLabel14.setText("- Personalizados");
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel15.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
@@ -313,7 +313,7 @@ public class Membresia extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("- Acceso a Spa");
+        jLabel21.setText("- Acceso a spa");
         jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

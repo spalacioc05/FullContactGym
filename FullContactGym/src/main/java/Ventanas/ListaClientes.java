@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventanas;
-
+import Modelo.Listar;
+import javax.swing.JOptionPane;
 /**
  *
  * @author HP
@@ -19,8 +20,8 @@ public class ListaClientes extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    private String idUniversal;
-    private String rolUniversal;
+    private String idUniversal = "";
+    private String rolUniversal = "";
     
     public void setAutenficar(String idUniversal, String rolUniversal) {
         this.idUniversal = idUniversal;
@@ -54,35 +55,45 @@ public class ListaClientes extends javax.swing.JFrame {
         buttonListar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         buttonListar.setForeground(new java.awt.Color(255, 255, 255));
         buttonListar.setText("Listar en PDF");
+        buttonListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonListarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(276, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(275, 275, 275))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(buttonListar)
-                        .addGap(295, 295, 295))))
+                .addContainerGap(288, Short.MAX_VALUE)
+                .addComponent(buttonListar)
+                .addGap(295, 295, 295))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(265, 265, 265)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(83, 83, 83)
+                .addGap(105, 105, 105)
                 .addComponent(jLabel1)
-                .addGap(77, 77, 77)
+                .addGap(55, 55, 55)
                 .addComponent(buttonListar)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonListarActionPerformed
+        Listar listar = new Listar();
+        listar.generarPDFUsuarios("data/basededatos.csv", "archivosPDF/ListaUsuarios.pdf");
+        JOptionPane.showMessageDialog(this, "PDF generado correctamente.");
+    }//GEN-LAST:event_buttonListarActionPerformed
 
     /**
      * @param args the command line arguments

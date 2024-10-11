@@ -17,8 +17,8 @@ public class Index extends javax.swing.JFrame {
         initComponents();
     }
     
-    private String idUniversal;
-    private String rolUniversal;
+    private String idUniversal = "";
+    private String rolUniversal = "";
     
     public void setAutenficar(String idUniversal, String rolUniversal) {
         this.idUniversal = idUniversal;
