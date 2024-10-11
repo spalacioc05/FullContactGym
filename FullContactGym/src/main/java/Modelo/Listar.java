@@ -33,15 +33,13 @@ public class Listar {
             PdfWriter.getInstance(document, new FileOutputStream(archivoPDF));
             document.open();
 
-            // Título del documento
             Font fontTitulo = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
             Paragraph titulo = new Paragraph("Lista de Usuarios", fontTitulo);
             titulo.setAlignment(Element.ALIGN_CENTER);
             document.add(titulo);
-            document.add(new Paragraph(" ")); // Espacio en blanco
+            document.add(new Paragraph(" "));
 
-            // Tabla
-            PdfPTable table = new PdfPTable(11); // 11 columnas
+            PdfPTable table = new PdfPTable(11);
             addTableHeader(table);
             addRows(table, archivoCSV);
 
@@ -67,12 +65,12 @@ public class Listar {
         Font fontRow = new Font(Font.FontFamily.HELVETICA, 6);
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
             String line;
-            br.readLine(); // Saltar la cabecera
+            br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 if ("usuario".equals(data[2])) {
                     for (int i = 0; i < data.length; i++) {
-                        if (i != 1 && i != 2) { // Omitir clave y rol
+                        if (i != 1 && i != 2) {
                             table.addCell(new Phrase(data[i], fontRow));
                         }
                     }
