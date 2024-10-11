@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Utilidades;
+package Modelo;
 
 /**
  *
  * @author spala
  */
-public class Agenda {
+public class Listar {
     
 }
