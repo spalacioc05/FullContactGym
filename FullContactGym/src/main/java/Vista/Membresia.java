@@ -4,11 +4,6 @@
  */
 package Vista;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-
 /**
  *
  * @author HP
@@ -21,16 +16,6 @@ public class Membresia extends javax.swing.JFrame {
     
     public Membresia() {
         initComponents();
-        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-    }
-    
-    private String idUniversal = "";
-    private String rolUniversal = "";
-    
-    public void setAutenficar(String idUniversal, String rolUniversal) {
-        this.idUniversal = idUniversal;
-        this.rolUniversal = rolUniversal;
     }
 
     /**

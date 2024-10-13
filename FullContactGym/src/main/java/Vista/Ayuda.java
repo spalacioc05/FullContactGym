@@ -12,19 +12,11 @@ public class Ayuda extends javax.swing.JFrame {
      * Creates new form Ayuda
      */
     
-    private String idUniversal = "";
-    private String rolUniversal = "";
     
-    public void setAutenficar(String idUniversal, String rolUniversal) {
-        this.idUniversal = idUniversal;
-        this.rolUniversal = rolUniversal;
-    }
     
     public Ayuda() {
         super("Ayuda");
         initComponents();
-        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
-        this.setLocationRelativeTo(null);
     }
 
     /**

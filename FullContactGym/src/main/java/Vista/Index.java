@@ -16,14 +16,6 @@ public class Index extends javax.swing.JFrame {
     public Index() {
         initComponents();
     }
-    
-    private String idUniversal = "";
-    private String rolUniversal = "";
-    
-    public void setAutenficar(String idUniversal, String rolUniversal) {
-        this.idUniversal = idUniversal;
-        this.rolUniversal = rolUniversal;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

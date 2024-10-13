@@ -11,19 +11,9 @@ import javax.swing.JOptionPane;
  */
 public class Actualizar extends javax.swing.JFrame {
 
-    private String idUniversal;
-    private String rolUniversal;
-
-    public void setAutenficar(String idUniversal, String rolUniversal) {
-        this.idUniversal = idUniversal;
-        this.rolUniversal = rolUniversal;
-    }
-    
     
     public Actualizar() {
         initComponents();
-        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -362,18 +352,7 @@ public class Actualizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        if (idUniversal.isEmpty()) {
-            // Redirect to Login window
-            Login loginWindow = new Login();
-            loginWindow.setVisible(true);
-            return;
-        }
-    
         String id = jTextFieldID.getText();
-        if (rolUniversal.equals("usuario") && !id.equals(idUniversal)) {
-            JOptionPane.showMessageDialog(this, "Solo puedes buscar tu propio ID.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
         
         if (id.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");

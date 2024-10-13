@@ -200,13 +200,6 @@ public class Login extends javax.swing.JFrame {
         Ayuda ayudaFrame = new Ayuda();
         Index indexFrame = new Index();
         
-        registrarFrame.setAutenficar(inputID, role);
-        actualizarFrame.setAutenficar(inputID, role);
-        membresiaFrame.setAutenficar(inputID, role);
-        listaClientesFrame.setAutenficar(inputID, role);
-        listaFacturaFrame.setAutenficar(inputID, role);
-        ayudaFrame.setAutenficar(inputID, role);
-        indexFrame.setAutenficar(inputID, role);
         
     }//GEN-LAST:event_JButtonIniciarSesionActionPerformed
 
