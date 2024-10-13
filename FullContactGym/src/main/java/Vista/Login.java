@@ -4,10 +4,8 @@
  */
 package Vista;
 
+import Controlador.Persona;
 import java.awt.Color;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -179,26 +177,10 @@ public class Login extends javax.swing.JFrame {
     private void JButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonIniciarSesionActionPerformed
         String inputID = jTextFieldID.getText();
         String inputClave = new String(jPasswordClave.getPassword());
-        boolean loginSuccess = false;
-        String role = "";
 
-        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] fields = line.split(",");
-                String id = fields[0];
-                String clave = fields[1];
-                String rol = fields[2];
-
-                if (id.equals(inputID) && clave.equals(inputClave)) {
-                    loginSuccess = true;
-                    role = rol;
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String[] authResult = Persona.autenticar(inputID, inputClave);
+        boolean loginSuccess = Boolean.parseBoolean(authResult[0]);
+        String role = authResult[1];
 
         if (loginSuccess) {
             if (role.equals("administrador")) {
@@ -207,7 +189,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Bienvenido Usuario");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "ID o Clave incorrectos");
+            JOptionPane.showMessageDialog(this, "ID o Clave incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
         }
         
         Registro registrarFrame = new Registro();

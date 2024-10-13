@@ -10,8 +10,8 @@ package Controlador;
  */
 
 public class Administrador extends Persona {
-    // Constructor
-    public Administrador(int id, String clave, String nombre, String correo, String tipoMembresia, String fechaInicio, String fechaFinal, double montoPagar, String estado) {
-        super(id, clave, nombre, correo, tipoMembresia, fechaInicio, fechaFinal, montoPagar, estado);
+
+    public Administrador(String id, String clave, String rol, String nombre, String correo, String fechaNacimiento, String genero, String estado) {
+        super(id, clave, rol, nombre, correo, fechaNacimiento, genero, estado);
     }
 }

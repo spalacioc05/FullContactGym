@@ -4,12 +4,8 @@
  */
 package Vista;
 
+import Controlador.Usuario;
 import java.awt.Color;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -57,7 +53,7 @@ public class Registro extends javax.swing.JFrame {
         jPasswordFieldClave = new javax.swing.JPasswordField();
         jButtonRegistrar = new javax.swing.JButton();
         jButtonIniciarSesion = new javax.swing.JLabel();
-        generoBox = new javax.swing.JComboBox<>();
+        JComboBoxGenero = new javax.swing.JComboBox<>();
         jTextFieldFechaNacimiento = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
@@ -146,12 +142,12 @@ public class Registro extends javax.swing.JFrame {
             }
         });
 
-        generoBox.setBackground(new java.awt.Color(255, 255, 255));
-        generoBox.setForeground(new java.awt.Color(0, 0, 0));
-        generoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Género", "Masculino", "Femenino", "Otro" }));
-        generoBox.addActionListener(new java.awt.event.ActionListener() {
+        JComboBoxGenero.setBackground(new java.awt.Color(255, 255, 255));
+        JComboBoxGenero.setForeground(new java.awt.Color(0, 0, 0));
+        JComboBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Género", "Masculino", "Femenino", "Otro" }));
+        JComboBoxGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generoBoxActionPerformed(evt);
+                JComboBoxGeneroActionPerformed(evt);
             }
         });
 
@@ -184,7 +180,7 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(generoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JComboBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -230,7 +226,7 @@ public class Registro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(generoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JComboBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -320,21 +316,28 @@ public class Registro extends javax.swing.JFrame {
         String nombre = jTextFieldNombre.getText();
         String correo = jTextFieldCorreo.getText();
         String clave = new String(jPasswordFieldClave.getPassword());
-        String genero = generoBox.getSelectedItem().toString();
         String fechaNacimiento = jTextFieldFechaNacimiento.getText();
+        String genero = JComboBoxGenero.getSelectedItem().toString();
+        String tipoMembresia = "";
+        String fechaInicio = ""; 
+        String fechaVencimiento = "";
+        double montoPagar = 0.0; 
+        String estadoPago = ""; 
 
         if (id.isEmpty() || nombre.isEmpty() || correo.isEmpty() || clave.isEmpty() || genero.isEmpty() || fechaNacimiento.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (isIDRegistered("data/basededatos.csv", id)) {
+        if (Usuario.isIDRegistered("data/basededatos.csv", id)) {
             JOptionPane.showMessageDialog(this, "El ID ya está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        String newUser = String.format("%s,%s,usuario,%s,%s,%s,%s,,,,,,activo", id, clave, nombre, correo, fechaNacimiento, genero);
-        appendToCSV("data/basededatos.csv", newUser);
+        Usuario nuevoUsuario = new Usuario(id, clave, "usuario", nombre, correo, fechaNacimiento, genero, "activo", tipoMembresia, fechaInicio, fechaVencimiento, montoPagar, estadoPago);
+        String data = id + "," + clave + "," + "usuario" + "," + nombre + "," + correo + "," + fechaNacimiento + "," + genero + "," + tipoMembresia + "," + fechaInicio + "," + fechaVencimiento + "," + montoPagar + "," + estadoPago + "," + "activo";
+        nuevoUsuario.registrarUsuario("data/basededatos.csv", data);
+
         JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
@@ -342,38 +345,14 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFechaNacimientoActionPerformed
 
-    private void generoBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoBoxActionPerformed
+    private void JComboBoxGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxGeneroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_generoBoxActionPerformed
+    }//GEN-LAST:event_JComboBoxGeneroActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
-    private void appendToCSV(String filePath, String data) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-            writer.write(data);
-            writer.newLine();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error al escribir en el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-    
-    private boolean isIDRegistered(String filePath, String id) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(";");
-                if (fields.length > 0 && fields[0].equals(id)) {
-                    return true;
-                }
-            }
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error al leer el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        return false;
-    }
+
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -411,7 +390,7 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> generoBox;
+    private javax.swing.JComboBox<String> JComboBoxGenero;
     private javax.swing.JLabel jButtonIniciarSesion;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;

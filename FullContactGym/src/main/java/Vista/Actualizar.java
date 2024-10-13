@@ -1,11 +1,8 @@
 
 package Vista;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import Controlador.Persona;
+import Controlador.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,8 +11,8 @@ import javax.swing.JOptionPane;
  */
 public class Actualizar extends javax.swing.JFrame {
 
-    private String idUniversal = "";
-    private String rolUniversal = "";
+    private String idUniversal;
+    private String rolUniversal;
 
     public void setAutenficar(String idUniversal, String rolUniversal) {
         this.idUniversal = idUniversal;
@@ -365,40 +362,40 @@ public class Actualizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        String id = jTextFieldID.getText().trim();
+        if (idUniversal.isEmpty()) {
+            // Redirect to Login window
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            return;
+        }
+    
+        String id = jTextFieldID.getText();
+        if (rolUniversal.equals("usuario") && !id.equals(idUniversal)) {
+            JOptionPane.showMessageDialog(this, "Solo puedes buscar tu propio ID.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         if (id.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
             return;
         }
 
-        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
-            String line;
-            boolean found = false;
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data[0].equals(id)) {
-                    jTextFieldNombre.setText(data[3]);
-                    jTextFieldCorreo.setText(data[4]);
-                    jTextFieldFechaNacimiento.setText(data[5]);
-                    JComboBoxGenero.setSelectedItem(data[6]);
-                    jComboBoxTipoMembresia.setSelectedItem(data[7]);
-                    jTextFieldFechaInicio.setText(data[8]);
-                    jTextFieldFechaPago.setText(data[9]);
-                    jTextFieldMontoPagar.setText(data[10]);
-                    jTextFieldEstadoPago.setText(data[11]);
-                    jTextFieldEstado.setText(data[12]);
-                    jTextFieldRol.setText(data[2]);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                JOptionPane.showMessageDialog(this, "ID no encontrado.");
-                clearFields();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al leer el archivo.");
+        Usuario usuario = Usuario.buscarPorID(id);
+        if (usuario != null) {
+            jTextFieldNombre.setText(usuario.getNombre());
+            jTextFieldCorreo.setText(usuario.getCorreo());
+            jTextFieldFechaNacimiento.setText(usuario.getFechaNacimiento());
+            JComboBoxGenero.setSelectedItem(usuario.getGenero());
+            jTextFieldEstado.setText(usuario.getEstado());
+            jTextFieldRol.setText(usuario.getRol());
+            jComboBoxTipoMembresia.setSelectedItem(usuario.getTipoMembresia());
+            jTextFieldFechaInicio.setText(usuario.getFechaInicio());
+            jTextFieldFechaPago.setText(usuario.getFechaVencimiento());
+            jTextFieldMontoPagar.setText(String.valueOf(usuario.getMontoPagar()));
+            jTextFieldEstadoPago.setText(usuario.getEstadoPago());
+        } else {
+            JOptionPane.showMessageDialog(this, "ID no encontrado.");
+            clearFields();
         }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
@@ -409,37 +406,21 @@ public class Actualizar extends javax.swing.JFrame {
             return;
         }
 
-        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
-            String line;
-            StringBuilder sb = new StringBuilder();
-            boolean found = false;
+        Persona persona = new Persona(
+            id,
+            "", // Clave no se actualiza aquí
+            jTextFieldRol.getText().trim(),
+            jTextFieldNombre.getText().trim(),
+            jTextFieldCorreo.getText().trim(),
+            jTextFieldFechaNacimiento.getText().trim(),
+            JComboBoxGenero.getSelectedItem().toString(),
+            jTextFieldEstado.getText().trim()
+        );
 
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data[0].equals(id)) {
-                    data[3] = jTextFieldNombre.getText().trim();
-                    data[4] = jTextFieldCorreo.getText().trim();
-                    data[5] = jTextFieldFechaNacimiento.getText().trim();
-                    data[6] = JComboBoxGenero.getSelectedItem().toString();
-                    line = String.join(",", data);
-                    found = true;
-                }
-                sb.append(line).append("\n");
-            }
-
-            if (!found) {
-                JOptionPane.showMessageDialog(this, "ID no encontrado.");
-                return;
-            }
-
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter("data/basededatos.csv"))) {
-                bw.write(sb.toString());
-            }
-
+        if (Persona.actualizarPersona(persona)) {
             JOptionPane.showMessageDialog(this, "Datos actualizados correctamente.");
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al actualizar el archivo.");
+        } else {
+            JOptionPane.showMessageDialog(this, "ID no encontrado.");
         }
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
@@ -450,34 +431,11 @@ public class Actualizar extends javax.swing.JFrame {
             return;
         }
 
-        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
-            String line;
-            StringBuilder sb = new StringBuilder();
-            boolean found = false;
-
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if (!data[0].equals(id)) {
-                    sb.append(line).append("\n");
-                } else {
-                    found = true;
-                }
-            }
-
-            if (!found) {
-                JOptionPane.showMessageDialog(this, "ID no encontrado.");
-                return;
-            }
-
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter("data/basededatos.csv"))) {
-                bw.write(sb.toString());
-            }
-
+        if (Persona.borrarPorID(id)) {
             JOptionPane.showMessageDialog(this, "Datos borrados correctamente.");
             clearFields();
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al actualizar el archivo.");
+        } else {
+            JOptionPane.showMessageDialog(this, "ID no encontrado.");
         }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
