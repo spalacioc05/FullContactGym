@@ -30,14 +30,14 @@ public class Index extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuGestiones = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItemRegistro = new javax.swing.JMenuItem();
+        jMenuItemLogin = new javax.swing.JMenuItem();
+        jMenuItemActualizar = new javax.swing.JMenuItem();
+        jMenuItemMembresia = new javax.swing.JMenuItem();
         jMenuReportes = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItemListarClientes = new javax.swing.JMenuItem();
+        jMenuItemListarFactura = new javax.swing.JMenuItem();
+        jMenuItemAyuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -64,66 +64,66 @@ public class Index extends javax.swing.JFrame {
         jMenuGestiones.setText("Gestiones");
         jMenuGestiones.setPreferredSize(new java.awt.Dimension(100, 22));
 
-        jMenuItem2.setText("Registrarse");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemRegistro.setText("Registrarse");
+        jMenuItemRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItemRegistroActionPerformed(evt);
             }
         });
-        jMenuGestiones.add(jMenuItem2);
+        jMenuGestiones.add(jMenuItemRegistro);
 
-        jMenuItem3.setText("Iniciar Sesión");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemLogin.setText("Iniciar Sesión");
+        jMenuItemLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuItemLoginActionPerformed(evt);
             }
         });
-        jMenuGestiones.add(jMenuItem3);
+        jMenuGestiones.add(jMenuItemLogin);
 
-        jMenuItem4.setText("Actualizar datos");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemActualizar.setText("Actualizar datos");
+        jMenuItemActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuItemActualizarActionPerformed(evt);
             }
         });
-        jMenuGestiones.add(jMenuItem4);
+        jMenuGestiones.add(jMenuItemActualizar);
 
-        jMenuItem5.setText("Comprar membresia");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemMembresia.setText("Comprar membresia");
+        jMenuItemMembresia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                jMenuItemMembresiaActionPerformed(evt);
             }
         });
-        jMenuGestiones.add(jMenuItem5);
+        jMenuGestiones.add(jMenuItemMembresia);
 
         jMenuBar1.add(jMenuGestiones);
 
         jMenuReportes.setText("Reportes");
         jMenuReportes.setPreferredSize(new java.awt.Dimension(100, 22));
 
-        jMenuItem1.setText("Lista de clientes");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemListarClientes.setText("Lista de clientes");
+        jMenuItemListarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemListarClientesActionPerformed(evt);
             }
         });
-        jMenuReportes.add(jMenuItem1);
+        jMenuReportes.add(jMenuItemListarClientes);
 
-        jMenuItem7.setText("Listar Facturas");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemListarFactura.setText("Listar Facturas");
+        jMenuItemListarFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                jMenuItemListarFacturaActionPerformed(evt);
             }
         });
-        jMenuReportes.add(jMenuItem7);
+        jMenuReportes.add(jMenuItemListarFactura);
 
-        jMenuItem6.setText("Ayuda");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemAyuda.setText("Ayuda");
+        jMenuItemAyuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                jMenuItemAyudaActionPerformed(evt);
             }
         });
-        jMenuReportes.add(jMenuItem6);
+        jMenuReportes.add(jMenuItemAyuda);
 
         jMenuBar1.add(jMenuReportes);
 
@@ -143,42 +143,42 @@ public class Index extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // Crear una instancia de la ventana Registro
-        Registro registrarFrame = new Registro();
-        registrarFrame.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-
-        Login loginFrame = new Login();
-        loginFrame.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Actualizar actualizarFrame = new Actualizar();
-        actualizarFrame.setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        Membresia membresiaFrame = new Membresia();
-        membresiaFrame.setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ListaClientes listaClientesFrame = new ListaClientes();
-        listaClientesFrame.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        ListaFactura listaFacturaFrame = new ListaFactura();
-        listaFacturaFrame.setVisible(true);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        Ayuda ayudaFrame = new Ayuda();
-        ayudaFrame.setVisible(true);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void jMenuItemRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegistroActionPerformed
+        Registro registro = new Registro();
+        registro.setVisible(true);
+    }//GEN-LAST:event_jMenuItemRegistroActionPerformed
+    
+    private void jMenuItemLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLoginActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_jMenuItemLoginActionPerformed
+    
+    private void jMenuItemActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemActualizarActionPerformed
+        Actualizar actualizar = new Actualizar();
+        actualizar.setVisible(true);
+    }//GEN-LAST:event_jMenuItemActualizarActionPerformed
+    
+    private void jMenuItemMembresiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMembresiaActionPerformed
+        Membresia membresia = new Membresia();
+        membresia.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItemMembresiaActionPerformed
+    
+    private void jMenuItemListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarClientesActionPerformed
+        ListaClientes listaClientes = new ListaClientes();
+        listaClientes.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItemListarClientesActionPerformed
+    
+    private void jMenuItemListarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarFacturaActionPerformed
+        ListaFactura listaFactura = new ListaFactura();
+        listaFactura.setVisible(true);
+    }//GEN-LAST:event_jMenuItemListarFacturaActionPerformed
+    
+    private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
+        Ayuda ayuda = new Ayuda();
+        ayuda.setVisible(true);
+    }//GEN-LAST:event_jMenuItemAyudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,13 +220,13 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JLabel fondo;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuGestiones;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItemActualizar;
+    private javax.swing.JMenuItem jMenuItemAyuda;
+    private javax.swing.JMenuItem jMenuItemListarClientes;
+    private javax.swing.JMenuItem jMenuItemListarFactura;
+    private javax.swing.JMenuItem jMenuItemLogin;
+    private javax.swing.JMenuItem jMenuItemMembresia;
+    private javax.swing.JMenuItem jMenuItemRegistro;
     private javax.swing.JMenu jMenuReportes;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

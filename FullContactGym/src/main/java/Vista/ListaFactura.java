@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import Controlador.GestorDeNavegacion;
+import Controlador.SesionGlobal;
+
 /**
  *
  * @author HP
@@ -15,6 +18,8 @@ public class ListaFactura extends javax.swing.JFrame {
      */
     public ListaFactura() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
 
@@ -48,6 +53,11 @@ public class ListaFactura extends javax.swing.JFrame {
         buttonFacturaCliente.setForeground(new java.awt.Color(204, 204, 204));
         buttonFacturaCliente.setText("Factura de cliente");
         buttonFacturaCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonFacturaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFacturaClienteActionPerformed(evt);
+            }
+        });
 
         buttonFacturaBronce.setBackground(new java.awt.Color(51, 51, 51));
         buttonFacturaBronce.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -164,6 +174,19 @@ public class ListaFactura extends javax.swing.JFrame {
     private void buttonFacturaTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturaTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonFacturaTotalActionPerformed
+
+    private void buttonFacturaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturaClienteActionPerformed
+        if (!SesionGlobal.isLoggedIn()) {
+            GestorDeNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
+        } else {
+        BusquedaId busquedaId = new BusquedaId();
+        busquedaId.setVisible(true);
+        this.setVisible(false);
+        }
+    }//GEN-LAST:event_buttonFacturaClienteActionPerformed
 
     /**
      * @param args the command line arguments

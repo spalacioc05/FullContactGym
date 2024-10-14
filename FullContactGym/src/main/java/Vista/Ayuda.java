@@ -4,7 +4,6 @@ import Controlador.GestorDeNavegacion;
 import Controlador.SesionGlobal;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author Duvan Ruiz
@@ -19,6 +18,8 @@ public class Ayuda extends javax.swing.JFrame {
     
     public Ayuda() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
     /**

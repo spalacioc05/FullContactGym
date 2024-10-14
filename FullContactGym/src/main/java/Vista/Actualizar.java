@@ -16,6 +16,8 @@ public class Actualizar extends javax.swing.JFrame {
     
     public Actualizar() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -393,42 +395,66 @@ public class Actualizar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-        String id = jTextFieldID.getText().trim();
-        if (id.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
-            return;
-        }
-
-        Persona persona = new Persona(
-            id,
-            "", // Clave no se actualiza aquí
-            jTextFieldRol.getText().trim(),
-            jTextFieldNombre.getText().trim(),
-            jTextFieldCorreo.getText().trim(),
-            jTextFieldFechaNacimiento.getText().trim(),
-            JComboBoxGenero.getSelectedItem().toString(),
-            jTextFieldEstado.getText().trim()
-        );
-
-        if (Persona.actualizarPersona(persona)) {
-            JOptionPane.showMessageDialog(this, "Datos actualizados correctamente.");
+        if (!SesionGlobal.isLoggedIn()) {
+            GestorDeNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
         } else {
-            JOptionPane.showMessageDialog(this, "ID no encontrado.");
+            String id = jTextFieldID.getText().trim();
+            if (id.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
+                return;
+            }
+
+            if (SesionGlobal.getRolUsuario().equals("usuario") && !SesionGlobal.getIdUsuario().equals(id)) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese su ID.");
+                return;
+            }
+
+            Persona persona = new Persona(
+                id,
+                "", // Clave no se actualiza aquí
+                jTextFieldRol.getText().trim(),
+                jTextFieldNombre.getText().trim(),
+                jTextFieldCorreo.getText().trim(),
+                jTextFieldFechaNacimiento.getText().trim(),
+                JComboBoxGenero.getSelectedItem().toString(),
+                jTextFieldEstado.getText().trim()
+            );
+
+            if (Persona.actualizarPersona(persona)) {
+                JOptionPane.showMessageDialog(this, "Datos actualizados correctamente.");
+            } else {
+                JOptionPane.showMessageDialog(this, "ID no encontrado.");
+            }
         }
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
-        String id = jTextFieldID.getText().trim();
-        if (id.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
-            return;
-        }
-
-        if (Persona.borrarPorID(id)) {
-            JOptionPane.showMessageDialog(this, "Datos borrados correctamente.");
-            clearFields();
+        if (!SesionGlobal.isLoggedIn()) {
+            GestorDeNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
         } else {
-            JOptionPane.showMessageDialog(this, "ID no encontrado.");
+            String id = jTextFieldID.getText().trim();
+            if (id.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
+                return;
+            }
+
+            if (SesionGlobal.getRolUsuario().equals("usuario") && !SesionGlobal.getIdUsuario().equals(id)) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese su ID.");
+                return;
+            }
+
+            if (Persona.borrarPorID(id)) {
+                JOptionPane.showMessageDialog(this, "Datos borrados correctamente.");
+                clearFields();
+            } else {
+                JOptionPane.showMessageDialog(this, "ID no encontrado.");
+            }
         }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 

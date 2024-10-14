@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import Controlador.GestorDeNavegacion;
+import Controlador.SesionGlobal;
+
 /**
  *
  * @author HP
@@ -16,6 +19,8 @@ public class Membresia extends javax.swing.JFrame {
     
     public Membresia() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -33,7 +38,7 @@ public class Membresia extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        jButtonComprarPlata = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -41,7 +46,7 @@ public class Membresia extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jButtonOro = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -52,7 +57,7 @@ public class Membresia extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonComprarBronce = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,11 +88,16 @@ public class Membresia extends javax.swing.JFrame {
         jLabel19.setText("- Acceso a duchas");
         jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton3.setBackground(new java.awt.Color(51, 51, 51));
-        jButton3.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Comprar");
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonComprarPlata.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonComprarPlata.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
+        jButtonComprarPlata.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonComprarPlata.setText("Comprar");
+        jButtonComprarPlata.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonComprarPlata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonComprarPlataActionPerformed(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,7 +137,7 @@ public class Membresia extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonComprarPlata, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(45, 45, 45))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
@@ -150,7 +160,7 @@ public class Membresia extends javax.swing.JFrame {
                 .addGap(121, 121, 121)
                 .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(jButtonComprarPlata)
                 .addGap(16, 16, 16))
         );
 
@@ -177,11 +187,16 @@ public class Membresia extends javax.swing.JFrame {
         jLabel9.setText("- Acceso a duchas");
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 51));
-        jButton2.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Comprar");
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonOro.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonOro.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
+        jButtonOro.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonOro.setText("Comprar");
+        jButtonOro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonOro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOroActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -252,7 +267,7 @@ public class Membresia extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonOro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(40, 40, 40))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -282,7 +297,7 @@ public class Membresia extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(jButtonOro)
                 .addGap(16, 16, 16))
         );
 
@@ -303,11 +318,16 @@ public class Membresia extends javax.swing.JFrame {
         jLabel5.setText("- Acceso a duchas");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Comprar");
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonComprarBronce.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonComprarBronce.setFont(new java.awt.Font("Lucida Sans", 3, 12)); // NOI18N
+        jButtonComprarBronce.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonComprarBronce.setText("Comprar");
+        jButtonComprarBronce.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonComprarBronce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonComprarBronceActionPerformed(evt);
+            }
+        });
 
         jLabel22.setFont(new java.awt.Font("Lucida Sans", 3, 24)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
@@ -335,7 +355,7 @@ public class Membresia extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonComprarBronce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(33, 33, 33))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -354,7 +374,7 @@ public class Membresia extends javax.swing.JFrame {
                 .addGap(163, 163, 163)
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jButtonComprarBronce)
                 .addGap(16, 16, 16))
         );
 
@@ -402,6 +422,42 @@ public class Membresia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonComprarBronceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComprarBronceActionPerformed
+        if (!SesionGlobal.isLoggedIn()) {
+            GestorDeNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
+        } else {
+            // Comprar membresia bronce
+            
+        }
+    }//GEN-LAST:event_jButtonComprarBronceActionPerformed
+
+    private void jButtonComprarPlataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComprarPlataActionPerformed
+        if (!SesionGlobal.isLoggedIn()) {
+            GestorDeNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
+        } else {
+            // Comprar membresia palta
+            
+        }
+    }//GEN-LAST:event_jButtonComprarPlataActionPerformed
+
+    private void jButtonOroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOroActionPerformed
+        if (!SesionGlobal.isLoggedIn()) {
+            GestorDeNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
+        } else {
+            // Comprar membresia oro
+            
+        }
+    }//GEN-LAST:event_jButtonOroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -438,9 +494,9 @@ public class Membresia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonComprarBronce;
+    private javax.swing.JButton jButtonComprarPlata;
+    private javax.swing.JButton jButtonOro;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

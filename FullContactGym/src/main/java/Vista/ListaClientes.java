@@ -5,6 +5,9 @@
 package Vista;
 import Modelo.Listar;
 import javax.swing.JOptionPane;
+
+import Controlador.GestorDeNavegacion;
+import Controlador.SesionGlobal;
 /**
  *
  * @author HP
@@ -16,6 +19,8 @@ public class ListaClientes extends javax.swing.JFrame {
      */
     public ListaClientes() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -80,9 +85,18 @@ public class ListaClientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonListarActionPerformed
-        Listar listar = new Listar();
-        listar.generarPDFUsuarios("data/basededatos.csv", "archivosPDF/ListaUsuarios.pdf");
-        JOptionPane.showMessageDialog(this, "PDF generado correctamente.");
+        if (!SesionGlobal.isLoggedIn()) {
+            GestorDeNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
+        } else if (SesionGlobal.getRolUsuario().equals("administrador")) {
+            Listar listar = new Listar();
+            listar.generarPDFUsuarios("data/basededatos.csv", "archivosPDF/ListaUsuarios.pdf");
+            JOptionPane.showMessageDialog(this, "PDF generado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No tienes permisos para realizar esta acción.");
+        }
     }//GEN-LAST:event_buttonListarActionPerformed
 
     /**
