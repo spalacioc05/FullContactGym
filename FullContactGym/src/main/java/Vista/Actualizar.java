@@ -1,7 +1,9 @@
 
 package Vista;
 
+import Controlador.GestorDeNavegacion;
 import Controlador.Persona;
+import Controlador.SesionGlobal;
 import Controlador.Usuario;
 import javax.swing.JOptionPane;
 
@@ -352,29 +354,41 @@ public class Actualizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        String id = jTextFieldID.getText();
-        
-        if (id.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
-            return;
-        }
-
-        Usuario usuario = Usuario.buscarPorID(id);
-        if (usuario != null) {
-            jTextFieldNombre.setText(usuario.getNombre());
-            jTextFieldCorreo.setText(usuario.getCorreo());
-            jTextFieldFechaNacimiento.setText(usuario.getFechaNacimiento());
-            JComboBoxGenero.setSelectedItem(usuario.getGenero());
-            jTextFieldEstado.setText(usuario.getEstado());
-            jTextFieldRol.setText(usuario.getRol());
-            jComboBoxTipoMembresia.setSelectedItem(usuario.getTipoMembresia());
-            jTextFieldFechaInicio.setText(usuario.getFechaInicio());
-            jTextFieldFechaPago.setText(usuario.getFechaVencimiento());
-            jTextFieldMontoPagar.setText(String.valueOf(usuario.getMontoPagar()));
-            jTextFieldEstadoPago.setText(usuario.getEstadoPago());
+        if (!SesionGlobal.isLoggedIn()) {
+            GestorDeNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
         } else {
-            JOptionPane.showMessageDialog(this, "ID no encontrado.");
-            clearFields();
+            String id = jTextFieldID.getText();
+            
+            if (id.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
+                return;
+            }
+
+            if (SesionGlobal.getRolUsuario().equals("usuario") && !SesionGlobal.getIdUsuario().equals(id)) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese su ID.");
+                return;
+            }
+
+            Usuario usuario = Usuario.buscarPorID(id);
+            if (usuario != null) {
+                jTextFieldNombre.setText(usuario.getNombre());
+                jTextFieldCorreo.setText(usuario.getCorreo());
+                jTextFieldFechaNacimiento.setText(usuario.getFechaNacimiento());
+                JComboBoxGenero.setSelectedItem(usuario.getGenero());
+                jTextFieldEstado.setText(usuario.getEstado());
+                jTextFieldRol.setText(usuario.getRol());
+                jComboBoxTipoMembresia.setSelectedItem(usuario.getTipoMembresia());
+                jTextFieldFechaInicio.setText(usuario.getFechaInicio());
+                jTextFieldFechaPago.setText(usuario.getFechaVencimiento());
+                jTextFieldMontoPagar.setText(String.valueOf(usuario.getMontoPagar()));
+                jTextFieldEstadoPago.setText(usuario.getEstadoPago());
+            } else {
+                JOptionPane.showMessageDialog(this, "ID no encontrado.");
+                clearFields();
+            }
         }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 

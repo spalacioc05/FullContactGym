@@ -4,7 +4,10 @@
  */
 package Vista;
 
+import Controlador.GestorDeNavegacion;
 import Controlador.Persona;
+import Controlador.SesionGlobal;
+
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -175,32 +178,20 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonIniciarSesionActionPerformed
-        String inputID = jTextFieldID.getText();
-        String inputClave = new String(jPasswordClave.getPassword());
+        String id = jTextFieldID.getText();
+        String clave = new String(jPasswordClave.getPassword());
 
-        String[] authResult = Persona.autenticar(inputID, inputClave);
+        String[] authResult = Persona.autenticar(id, clave);
         boolean loginSuccess = Boolean.parseBoolean(authResult[0]);
-        String role = authResult[1];
+        String rol = authResult[1];
 
         if (loginSuccess) {
-            if (role.equals("administrador")) {
-                JOptionPane.showMessageDialog(this, "Bienvenido Administrador");
-            } else if (role.equals("usuario")) {
-                JOptionPane.showMessageDialog(this, "Bienvenido Usuario");
-            }
+            SesionGlobal.login(id, rol);
+            this.setVisible(false);
+            GestorDeNavegacion.navegarVentanaAnterior();
         } else {
             JOptionPane.showMessageDialog(this, "ID o Clave incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-        Registro registrarFrame = new Registro();
-        Actualizar actualizarFrame = new Actualizar();
-        Membresia membresiaFrame = new Membresia();
-        ListaClientes listaClientesFrame = new ListaClientes();
-        ListaFactura listaFacturaFrame = new ListaFactura();
-        Ayuda ayudaFrame = new Ayuda();
-        Index indexFrame = new Index();
-        
-        
     }//GEN-LAST:event_JButtonIniciarSesionActionPerformed
 
     private void JButtonRegistrateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonRegistrateMousePressed
