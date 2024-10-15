@@ -44,6 +44,7 @@ public class GestionarUsuario extends GestionarPersona {
             writer.newLine();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error al escribir en el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
     }
 
