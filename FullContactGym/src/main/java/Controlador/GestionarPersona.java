@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 
 public class GestionarPersona {
-    protected static final String FILE_PATH = "data/basededatos.csv";
+    protected static final String FILE_PATH = "FullContactGym\\data\\basededatos.csv";
 
     public static boolean isIDRegistered(String id) {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
