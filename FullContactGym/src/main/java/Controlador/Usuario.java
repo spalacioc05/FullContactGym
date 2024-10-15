@@ -4,14 +4,6 @@
  */
 package Controlador;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author spala
@@ -70,49 +62,8 @@ public class Usuario extends Persona {
         this.estadoPago = estadoPago; 
     }
 
-    public void registrarUsuario(String filePath, String data) {
-        if (isIDRegistered(filePath, this.getId())) {
-            JOptionPane.showMessageDialog(null, "El ID ya está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-            writer.write(data);
-            writer.newLine();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al escribir en el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    @Override
+    public String toCSV() {
+        return getId() + "," + getClave() + "," + getRol() + "," + getNombre() + "," + getCorreo() + "," + getFechaNacimiento() + "," + getGenero() + "," + tipoMembresia + "," + fechaInicio + "," + fechaVencimiento + "," + montoPagar + "," + estadoPago + "," + getEstado();
     }
-    
-    public static boolean isIDRegistered(String filePath, String id) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
-                if (fields[0].equals(id)) {
-                    return true;
-                }
-            }
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al leer el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        return false;
-    }
-
-    public static Usuario buscarPorID(String id) {
-        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data[0].equals(id)) {
-                    return new Usuario(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[12],
-                                       data[7], data[8], data[9], Double.parseDouble(data[10]), data[11]);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    
 }

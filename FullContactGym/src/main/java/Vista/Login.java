@@ -4,8 +4,8 @@
  */
 package Vista;
 
-import Controlador.GestorDeNavegacion;
-import Controlador.Persona;
+import Controlador.GestionarNavegacion;
+import Controlador.GestionarPersona;
 import Controlador.SesionGlobal;
 
 import java.awt.Color;
@@ -181,14 +181,14 @@ public class Login extends javax.swing.JFrame {
         String id = jTextFieldID.getText();
         String clave = new String(jPasswordClave.getPassword());
 
-        String[] authResult = Persona.autenticar(id, clave);
+        String[] authResult = GestionarPersona.autenticar(id, clave);
         boolean loginSuccess = Boolean.parseBoolean(authResult[0]);
         String rol = authResult[1];
 
         if (loginSuccess) {
             SesionGlobal.login(id, rol);
             this.setVisible(false);
-            GestorDeNavegacion.navegarVentanaAnterior();
+            GestionarNavegacion.navegarVentanaAnterior();
         } else {
             JOptionPane.showMessageDialog(this, "ID o Clave incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
         }

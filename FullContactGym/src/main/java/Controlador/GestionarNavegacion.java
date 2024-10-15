@@ -9,7 +9,7 @@ package Controlador;
  * @author spala
  */
 
-public class GestorDeNavegacion {
+public class GestionarNavegacion {
     private static javax.swing.JFrame ventanaAnterior;
 
     public static void setVentanaAnterior(javax.swing.JFrame ventana) {

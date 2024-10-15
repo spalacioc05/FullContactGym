@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.GestorDeNavegacion;
+import Controlador.GestionarNavegacion;
 import Controlador.SesionGlobal;
 import javax.swing.JOptionPane;
 
@@ -100,7 +100,7 @@ public class Ayuda extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
-        GestorDeNavegacion.setVentanaAnterior(this);
+        GestionarNavegacion.setVentanaAnterior(this);
         Login loginWindow = new Login();
         loginWindow.setVisible(true);
         this.setVisible(false);

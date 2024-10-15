@@ -6,7 +6,7 @@ package Vista;
 import Modelo.Listar;
 import javax.swing.JOptionPane;
 
-import Controlador.GestorDeNavegacion;
+import Controlador.GestionarNavegacion;
 import Controlador.SesionGlobal;
 /**
  *
@@ -86,7 +86,7 @@ public class ListaClientes extends javax.swing.JFrame {
 
     private void buttonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonListarActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
-            GestorDeNavegacion.setVentanaAnterior(this);
+            GestionarNavegacion.setVentanaAnterior(this);
             Login loginWindow = new Login();
             loginWindow.setVisible(true);
             this.setVisible(false);

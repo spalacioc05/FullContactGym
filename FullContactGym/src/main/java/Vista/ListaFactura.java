@@ -4,7 +4,7 @@
  */
 package Vista;
 
-import Controlador.GestorDeNavegacion;
+import Controlador.GestionarNavegacion;
 import Controlador.SesionGlobal;
 
 /**
@@ -177,7 +177,7 @@ public class ListaFactura extends javax.swing.JFrame {
 
     private void buttonFacturaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturaClienteActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
-            GestorDeNavegacion.setVentanaAnterior(this);
+            GestionarNavegacion.setVentanaAnterior(this);
             Login loginWindow = new Login();
             loginWindow.setVisible(true);
             this.setVisible(false);

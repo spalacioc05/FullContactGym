@@ -1,8 +1,11 @@
 
 package Vista;
 
-import Controlador.GestorDeNavegacion;
-import Controlador.Persona;
+import Controlador.Administrador;
+import Controlador.GestionarAdministrador;
+import Controlador.GestionarNavegacion;
+import Controlador.GestionarPersona;
+import Controlador.GestionarUsuario;
 import Controlador.SesionGlobal;
 import Controlador.Usuario;
 import javax.swing.JOptionPane;
@@ -60,6 +63,8 @@ public class Actualizar extends javax.swing.JFrame {
         jButtonBorrar = new javax.swing.JButton();
         jButtonActualizar = new javax.swing.JButton();
         jButtonDescargarPDF = new javax.swing.JButton();
+        jPasswordClave = new javax.swing.JPasswordField();
+        jLabelClave = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -201,10 +206,30 @@ public class Actualizar extends javax.swing.JFrame {
         jButtonDescargarPDF.setText("Descargar en pdf");
         jButtonDescargarPDF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jPasswordClave.setBackground(new java.awt.Color(255, 255, 255));
+        jPasswordClave.setForeground(new java.awt.Color(0, 0, 0));
+        jPasswordClave.setText("jPasswordField1");
+        jPasswordClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordClaveActionPerformed(evt);
+            }
+        });
+
+        jLabelClave.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelClave.setText("Clave");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonActualizar)
+                .addGap(55, 55, 55)
+                .addComponent(jButtonBorrar)
+                .addGap(51, 51, 51)
+                .addComponent(jButtonDescargarPDF)
+                .addGap(134, 134, 134))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,15 +276,12 @@ public class Actualizar extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldFechaPago, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabelFechaPago))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonActualizar)
-                .addGap(55, 55, 55)
-                .addComponent(jButtonBorrar)
-                .addGap(51, 51, 51)
-                .addComponent(jButtonDescargarPDF)
-                .addGap(134, 134, 134))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelClave, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,7 +341,11 @@ public class Actualizar extends javax.swing.JFrame {
                         .addComponent(jLabelFechaNacimiento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelClave)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBorrar)
                     .addComponent(jButtonActualizar)
@@ -332,7 +358,7 @@ public class Actualizar extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(285, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(281, 281, 281))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -357,86 +383,139 @@ public class Actualizar extends javax.swing.JFrame {
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
-            GestorDeNavegacion.setVentanaAnterior(this);
+            GestionarNavegacion.setVentanaAnterior(this);
             Login loginWindow = new Login();
             loginWindow.setVisible(true);
             this.setVisible(false);
         } else {
             String id = jTextFieldID.getText();
-            
+
             if (id.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
                 return;
             }
 
-            if (SesionGlobal.getRolUsuario().equals("usuario") && !SesionGlobal.getIdUsuario().equals(id)) {
-                JOptionPane.showMessageDialog(this, "Por favor, ingrese su ID.");
-                return;
-            }
+            if (SesionGlobal.getRolUsuario().equals("usuario")) {
+                if (!SesionGlobal.getIdUsuario().equals(id)) {
+                    JOptionPane.showMessageDialog(this, "Por favor, ingrese su ID.");
+                    return;
+                }
 
-            Usuario usuario = Usuario.buscarPorID(id);
-            if (usuario != null) {
-                jTextFieldNombre.setText(usuario.getNombre());
-                jTextFieldCorreo.setText(usuario.getCorreo());
-                jTextFieldFechaNacimiento.setText(usuario.getFechaNacimiento());
-                JComboBoxGenero.setSelectedItem(usuario.getGenero());
-                jTextFieldEstado.setText(usuario.getEstado());
-                jTextFieldRol.setText(usuario.getRol());
-                jComboBoxTipoMembresia.setSelectedItem(usuario.getTipoMembresia());
-                jTextFieldFechaInicio.setText(usuario.getFechaInicio());
-                jTextFieldFechaPago.setText(usuario.getFechaVencimiento());
-                jTextFieldMontoPagar.setText(String.valueOf(usuario.getMontoPagar()));
-                jTextFieldEstadoPago.setText(usuario.getEstadoPago());
-            } else {
-                JOptionPane.showMessageDialog(this, "ID no encontrado.");
-                clearFields();
+                Usuario usuario = GestionarUsuario.buscarPorIDUsuario(id);
+                if (usuario != null) {
+                    fillUserFields(usuario);
+                } else {
+                    JOptionPane.showMessageDialog(this, "ID no encontrado.");
+                    clearFields();
+                }
+            } else if (SesionGlobal.getRolUsuario().equals("administrador")) {
+                Administrador administrador = GestionarAdministrador.buscarPorIDAdministrador(id);
+                if (administrador != null) {
+                    fillAdminFields(administrador);
+                } else {
+                    Usuario usuario = GestionarUsuario.buscarPorIDUsuario(id);
+                    if (usuario != null) {
+                        fillUserFields(usuario);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "ID no encontrado.");
+                        clearFields();
+                    }
+                }
             }
-        }
+    }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
-            GestorDeNavegacion.setVentanaAnterior(this);
-            Login loginWindow = new Login();
-            loginWindow.setVisible(true);
-            this.setVisible(false);
-        } else {
-            String id = jTextFieldID.getText().trim();
-            if (id.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
-                return;
-            }
+        GestionarNavegacion.setVentanaAnterior(this);
+        Login loginWindow = new Login();
+        loginWindow.setVisible(true);
+        this.setVisible(false);
+    } else {
+        String id = jTextFieldID.getText().trim();
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
+            return;
+        }
 
-            if (SesionGlobal.getRolUsuario().equals("usuario") && !SesionGlobal.getIdUsuario().equals(id)) {
-                JOptionPane.showMessageDialog(this, "Por favor, ingrese su ID.");
-                return;
-            }
+        if (SesionGlobal.getRolUsuario().equals("usuario") && !SesionGlobal.getIdUsuario().equals(id)) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese su ID.");
+            return;
+        }
 
-            Persona persona = new Persona(
+        if (SesionGlobal.getRolUsuario().equals("usuario")) {
+            Usuario usuario = new Usuario(
                 id,
-                "", // Clave no se actualiza aquí
+                new String(jPasswordClave.getPassword()).trim(),
                 jTextFieldRol.getText().trim(),
                 jTextFieldNombre.getText().trim(),
                 jTextFieldCorreo.getText().trim(),
                 jTextFieldFechaNacimiento.getText().trim(),
                 JComboBoxGenero.getSelectedItem().toString(),
-                jTextFieldEstado.getText().trim()
+                jTextFieldEstado.getText().trim(),
+                jComboBoxTipoMembresia.getSelectedItem().toString(),
+                jTextFieldFechaInicio.getText().trim(),
+                jTextFieldFechaPago.getText().trim(),
+                Double.parseDouble(jTextFieldMontoPagar.getText().trim()),
+                jTextFieldEstadoPago.getText().trim()
             );
 
-            if (Persona.actualizarPersona(persona)) {
+            if (GestionarUsuario.actualizarUsuario(usuario)) {
                 JOptionPane.showMessageDialog(this, "Datos actualizados correctamente.");
             } else {
                 JOptionPane.showMessageDialog(this, "ID no encontrado.");
             }
+        } else if (SesionGlobal.getRolUsuario().equals("administrador")) {
+            if (SesionGlobal.getIdUsuario().equals(id)) {
+                Administrador administrador = new Administrador(
+                    id,
+                    new String(jPasswordClave.getPassword()).trim(), // Clave no se actualiza aquí
+                    jTextFieldRol.getText().trim(),
+                    jTextFieldNombre.getText().trim(),
+                    jTextFieldCorreo.getText().trim(),
+                    jTextFieldFechaNacimiento.getText().trim(),
+                    JComboBoxGenero.getSelectedItem().toString(),
+                    jTextFieldEstado.getText().trim()
+                );
+
+                if (GestionarAdministrador.actualizarAdministrador(administrador)) {
+                    JOptionPane.showMessageDialog(this, "Datos actualizados correctamente.");
+                } else {
+                    JOptionPane.showMessageDialog(this, "ID no encontrado.");
+                }
+            } else {
+                Usuario usuario = new Usuario(
+                    id,
+                    new String(jPasswordClave.getPassword()).trim(), // Clave no se actualiza aquí
+                    jTextFieldRol.getText().trim(),
+                    jTextFieldNombre.getText().trim(),
+                    jTextFieldCorreo.getText().trim(),
+                    jTextFieldFechaNacimiento.getText().trim(),
+                    JComboBoxGenero.getSelectedItem().toString(),
+                    jTextFieldEstado.getText().trim(),
+                    jComboBoxTipoMembresia.getSelectedItem().toString(),
+                    jTextFieldFechaInicio.getText().trim(),
+                    jTextFieldFechaPago.getText().trim(),
+                    Double.parseDouble(jTextFieldMontoPagar.getText().trim()),
+                    jTextFieldEstadoPago.getText().trim()
+                );
+
+                if (GestionarUsuario.actualizarUsuario(usuario)) {
+                    JOptionPane.showMessageDialog(this, "Datos actualizados correctamente.");
+                } else {
+                    JOptionPane.showMessageDialog(this, "ID no encontrado.");
+                }
+            }
         }
+    }
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
-            GestorDeNavegacion.setVentanaAnterior(this);
-            Login loginWindow = new Login();
-            loginWindow.setVisible(true);
-            this.setVisible(false);
+        GestionarNavegacion.setVentanaAnterior(this);
+        Login loginWindow = new Login();
+        loginWindow.setVisible(true);
+        this.setVisible(false);
         } else {
             String id = jTextFieldID.getText().trim();
             if (id.isEmpty()) {
@@ -449,14 +528,22 @@ public class Actualizar extends javax.swing.JFrame {
                 return;
             }
 
-            if (Persona.borrarPorID(id)) {
-                JOptionPane.showMessageDialog(this, "Datos borrados correctamente.");
-                clearFields();
+            if (SesionGlobal.getRolUsuario().equals("administrador") || SesionGlobal.getIdUsuario().equals(id)) {
+                if (GestionarPersona.borrarPorID(id)) {
+                    JOptionPane.showMessageDialog(this, "Datos borrados correctamente.");
+                    clearFields();
+                } else {
+                    JOptionPane.showMessageDialog(this, "ID no encontrado.");
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "ID no encontrado.");
+                JOptionPane.showMessageDialog(this, "No tiene permiso para borrar este ID.");
             }
         }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
+
+    private void jPasswordClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordClaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -494,18 +581,44 @@ public class Actualizar extends javax.swing.JFrame {
         });
     }
     
+    private void fillUserFields(Usuario usuario) {
+        jTextFieldNombre.setText(usuario.getNombre());
+        jTextFieldCorreo.setText(usuario.getCorreo());
+        jTextFieldFechaNacimiento.setText(usuario.getFechaNacimiento());
+        JComboBoxGenero.setSelectedItem(usuario.getGenero());
+        jTextFieldEstado.setText(usuario.getEstado());
+        jTextFieldRol.setText(usuario.getRol());
+        jComboBoxTipoMembresia.setSelectedItem(usuario.getTipoMembresia());
+        jTextFieldFechaInicio.setText(usuario.getFechaInicio());
+        jTextFieldFechaPago.setText(usuario.getFechaVencimiento());
+        jTextFieldMontoPagar.setText(String.valueOf(usuario.getMontoPagar()));
+        jTextFieldEstadoPago.setText(usuario.getEstadoPago());
+        jPasswordClave.setText(usuario.getClave());
+    }
+    
+    private void fillAdminFields(Administrador administrador) {
+        jTextFieldNombre.setText(administrador.getNombre());
+        jTextFieldCorreo.setText(administrador.getCorreo());
+        jTextFieldFechaNacimiento.setText(administrador.getFechaNacimiento());
+        JComboBoxGenero.setSelectedItem(administrador.getGenero());
+        jTextFieldEstado.setText(administrador.getEstado());
+        jTextFieldRol.setText(administrador.getRol());
+        jPasswordClave.setText(administrador.getClave());
+    }
+    
     private void clearFields() {
         jTextFieldNombre.setText("");
         jTextFieldCorreo.setText("");
         jTextFieldFechaNacimiento.setText("");
-        JComboBoxGenero.setSelectedItem("Género");
-        jComboBoxTipoMembresia.setSelectedItem("Tipo");
+        JComboBoxGenero.setSelectedItem("");
+        jTextFieldEstado.setText("");
+        jTextFieldRol.setText("");
+        jComboBoxTipoMembresia.setSelectedItem("");
         jTextFieldFechaInicio.setText("");
         jTextFieldFechaPago.setText("");
         jTextFieldMontoPagar.setText("");
         jTextFieldEstadoPago.setText("");
-        jTextFieldEstado.setText("");
-        jTextFieldRol.setText("");
+        jPasswordClave.setText("");
     }
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -516,6 +629,7 @@ public class Actualizar extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDescargarPDF;
     private javax.swing.JComboBox<String> jComboBoxTipoMembresia;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelClave;
     private javax.swing.JLabel jLabelCorreo;
     private javax.swing.JLabel jLabelEstado;
     private javax.swing.JLabel jLabelEstadoPago;
@@ -530,6 +644,7 @@ public class Actualizar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTipoMembresia;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordClave;
     private javax.swing.JTextField jTextFieldCorreo;
     private javax.swing.JTextField jTextFieldEstado;
     private javax.swing.JTextField jTextFieldEstadoPago;

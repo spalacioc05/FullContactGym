@@ -4,7 +4,7 @@
  */
 package Vista;
 
-import Controlador.GestorDeNavegacion;
+import Controlador.GestionarNavegacion;
 import Controlador.SesionGlobal;
 
 /**
@@ -424,7 +424,7 @@ public class Membresia extends javax.swing.JFrame {
 
     private void jButtonComprarBronceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComprarBronceActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
-            GestorDeNavegacion.setVentanaAnterior(this);
+            GestionarNavegacion.setVentanaAnterior(this);
             Login loginWindow = new Login();
             loginWindow.setVisible(true);
             this.setVisible(false);
@@ -436,7 +436,7 @@ public class Membresia extends javax.swing.JFrame {
 
     private void jButtonComprarPlataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComprarPlataActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
-            GestorDeNavegacion.setVentanaAnterior(this);
+            GestionarNavegacion.setVentanaAnterior(this);
             Login loginWindow = new Login();
             loginWindow.setVisible(true);
             this.setVisible(false);
@@ -448,7 +448,7 @@ public class Membresia extends javax.swing.JFrame {
 
     private void jButtonOroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOroActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
-            GestorDeNavegacion.setVentanaAnterior(this);
+            GestionarNavegacion.setVentanaAnterior(this);
             Login loginWindow = new Login();
             loginWindow.setVisible(true);
             this.setVisible(false);

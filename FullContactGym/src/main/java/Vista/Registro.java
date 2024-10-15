@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.GestionarUsuario;
 import Controlador.Usuario;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -322,16 +323,11 @@ public class Registro extends javax.swing.JFrame {
             return;
         }
 
-        if (Usuario.isIDRegistered("data/basededatos.csv", id)) {
-            JOptionPane.showMessageDialog(this, "El ID ya está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
         Usuario nuevoUsuario = new Usuario(id, clave, "usuario", nombre, correo, fechaNacimiento, genero, "activo", tipoMembresia, fechaInicio, fechaVencimiento, montoPagar, estadoPago);
-        String data = id + "," + clave + "," + "usuario" + "," + nombre + "," + correo + "," + fechaNacimiento + "," + genero + "," + tipoMembresia + "," + fechaInicio + "," + fechaVencimiento + "," + montoPagar + "," + estadoPago + "," + "activo";
-        nuevoUsuario.registrarUsuario("data/basededatos.csv", data);
+        GestionarUsuario.registrarUsuario(nuevoUsuario);
 
         JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jTextFieldFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFechaNacimientoActionPerformed

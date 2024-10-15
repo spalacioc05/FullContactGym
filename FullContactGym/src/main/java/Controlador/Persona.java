@@ -4,19 +4,13 @@
  */
 package Controlador;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
 /**
  *
  * @author spala
  */
 
 
-public class Persona {
+ public class Persona {
     private String id;
     private String clave;
     private String rol;
@@ -93,109 +87,9 @@ public class Persona {
     public void setEstado(String estado) { 
         this.estado = estado; 
     }
-
-    public static String[] autenticar(String inputID, String inputClave) {
-        boolean loginSuccess = false;
-        String role = "";
-        Persona persona = new Persona("", "", "", "", "", "", "", "");
-        persona.setId(inputID);
-        persona.setClave(inputClave);
-
-        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] fields = line.split(",");
-                String id = fields[0];
-                String clave = fields[1];
-                String rol = fields[2];
-
-                if (id.equals(persona.getId()) && clave.equals(persona.getClave())) {
-                    loginSuccess = true;
-                    role = rol;
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return new String[]{String.valueOf(loginSuccess), role};
+    
+    public String toCSV() {
+        return String.join(",", id, clave, rol, nombre, correo, fechaNacimiento, genero, estado);
     }
 
-    public static Persona buscarPorID(String id) {
-        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data[0].equals(id)) {
-                    return new Persona(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[12]);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public static boolean actualizarPersona(Persona persona) {
-        boolean found = false;
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data[0].equals(persona.getId())) {
-                    data[3] = persona.getNombre();
-                    data[4] = persona.getCorreo();
-                    data[5] = persona.getFechaNacimiento();
-                    data[6] = persona.getGenero();
-                    data[12] = persona.getEstado();
-                    line = String.join(",", data);
-                    found = true;
-                }
-                sb.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-
-        if (found) {
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter("data/basededatos.csv"))) {
-                bw.write(sb.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return found;
-    }
-
-    public static boolean borrarPorID(String id) {
-        boolean found = false;
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader("data/basededatos.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if (!data[0].equals(id)) {
-                    sb.append(line).append("\n");
-                } else {
-                    found = true;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-
-        if (found) {
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter("data/basededatos.csv"))) {
-                bw.write(sb.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return found;
-    }
 }
