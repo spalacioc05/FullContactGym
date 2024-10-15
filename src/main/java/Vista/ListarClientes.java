@@ -50,8 +50,8 @@ public class ListarClientes extends javax.swing.JFrame {
         jLabel1.setText("Listar clientes");
 
         jButtonListarClientes.setBackground(new java.awt.Color(51, 51, 51));
-        jButtonListarClientes.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jButtonListarClientes.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonListarClientes.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jButtonListarClientes.setForeground(new java.awt.Color(204, 204, 204));
         jButtonListarClientes.setText("Todos los Clienetes");
         jButtonListarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +59,9 @@ public class ListarClientes extends javax.swing.JFrame {
             }
         });
 
+        jButtonClientesBronce.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonClientesBronce.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonClientesBronce.setForeground(new java.awt.Color(204, 204, 204));
         jButtonClientesBronce.setText("Clientes Bronce");
         jButtonClientesBronce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +69,9 @@ public class ListarClientes extends javax.swing.JFrame {
             }
         });
 
+        jButtonClientesPlata.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonClientesPlata.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonClientesPlata.setForeground(new java.awt.Color(204, 204, 204));
         jButtonClientesPlata.setText("Clientes Plata");
         jButtonClientesPlata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +79,9 @@ public class ListarClientes extends javax.swing.JFrame {
             }
         });
 
+        jButtonClientesOro.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonClientesOro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonClientesOro.setForeground(new java.awt.Color(204, 204, 204));
         jButtonClientesOro.setText("Clientes Oro");
         jButtonClientesOro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,22 +94,24 @@ public class ListarClientes extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonClientesPlata)
-                        .addGap(85, 85, 85)
-                        .addComponent(jButtonClientesOro))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(jButtonListarClientes)
-                        .addGap(33, 33, 33)
-                        .addComponent(jButtonClientesBronce)))
-                .addContainerGap(201, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(272, 272, 272))
+                .addGap(0, 163, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(272, 272, 272))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButtonListarClientes)
+                                .addGap(33, 33, 33)
+                                .addComponent(jButtonClientesBronce))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonClientesPlata)
+                                .addGap(74, 74, 74)
+                                .addComponent(jButtonClientesOro)
+                                .addGap(15, 15, 15)))
+                        .addGap(159, 159, 159))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,11 +122,11 @@ public class ListarClientes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonListarClientes)
                     .addComponent(jButtonClientesBronce))
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonClientesPlata)
                     .addComponent(jButtonClientesOro))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);

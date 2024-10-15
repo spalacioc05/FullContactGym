@@ -36,7 +36,6 @@ public class Actualizar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jTextFieldID = new javax.swing.JTextField();
-        jTextFieldEstado = new javax.swing.JTextField();
         jTextFieldRol = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
         jLabelID = new javax.swing.JLabel();
@@ -65,6 +64,7 @@ public class Actualizar extends javax.swing.JFrame {
         jButtonDescargarPDF = new javax.swing.JButton();
         jPasswordClave = new javax.swing.JPasswordField();
         jLabelClave = new javax.swing.JLabel();
+        jComboBoxEstado = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -81,9 +81,6 @@ public class Actualizar extends javax.swing.JFrame {
 
         jTextFieldID.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldID.setForeground(new java.awt.Color(0, 0, 0));
-
-        jTextFieldEstado.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldEstado.setForeground(new java.awt.Color(0, 0, 0));
 
         jTextFieldRol.setEditable(false);
         jTextFieldRol.setBackground(new java.awt.Color(255, 255, 255));
@@ -184,7 +181,7 @@ public class Actualizar extends javax.swing.JFrame {
         jLabelMontoPagar.setText("Monto a pagar");
 
         jButtonBorrar.setBackground(new java.awt.Color(51, 51, 51));
-        jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonBorrar.setForeground(new java.awt.Color(204, 204, 204));
         jButtonBorrar.setText("Borrar");
         jButtonBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -195,7 +192,7 @@ public class Actualizar extends javax.swing.JFrame {
         });
 
         jButtonActualizar.setBackground(new java.awt.Color(51, 51, 51));
-        jButtonActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonActualizar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonActualizar.setForeground(new java.awt.Color(204, 204, 204));
         jButtonActualizar.setText("Actualizar");
         jButtonActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -206,7 +203,7 @@ public class Actualizar extends javax.swing.JFrame {
         });
 
         jButtonDescargarPDF.setBackground(new java.awt.Color(51, 51, 51));
-        jButtonDescargarPDF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonDescargarPDF.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonDescargarPDF.setForeground(new java.awt.Color(204, 204, 204));
         jButtonDescargarPDF.setText("Descargar en pdf");
         jButtonDescargarPDF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -220,21 +217,19 @@ public class Actualizar extends javax.swing.JFrame {
             }
         });
 
+        jLabelClave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelClave.setForeground(new java.awt.Color(0, 0, 0));
         jLabelClave.setText("Clave");
+
+        jComboBoxEstado.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxEstado.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estado", "activo", "inactivo" }));
+        jComboBoxEstado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonActualizar)
-                .addGap(55, 55, 55)
-                .addComponent(jButtonBorrar)
-                .addGap(51, 51, 51)
-                .addComponent(jButtonDescargarPDF)
-                .addGap(134, 134, 134))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,14 +246,14 @@ public class Actualizar extends javax.swing.JFrame {
                             .addComponent(jLabelRol))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelEstado)
                             .addComponent(jTextFieldFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelFechaNacimiento)
                             .addComponent(jTextFieldEstadoPago, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelEstadoPago)
                             .addComponent(jTextFieldMontoPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelMontoPagar))
+                            .addComponent(jLabelMontoPagar)
+                            .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,15 +273,20 @@ public class Actualizar extends javax.swing.JFrame {
                                     .addComponent(jLabelTipoMembresia))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldFechaPago, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelFechaPago))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelClave, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldFechaPago, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(jLabelFechaPago)
+                                    .addComponent(jLabelClave, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPasswordClave))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(jButtonActualizar)
+                .addGap(55, 55, 55)
+                .addComponent(jButtonBorrar)
+                .addGap(51, 51, 51)
+                .addComponent(jButtonDescargarPDF)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,9 +299,9 @@ public class Actualizar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscar))
+                    .addComponent(jButtonBuscar)
+                    .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -346,16 +346,16 @@ public class Actualizar extends javax.swing.JFrame {
                         .addComponent(jLabelFechaNacimiento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
                 .addComponent(jLabelClave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBorrar)
                     .addComponent(jButtonActualizar)
                     .addComponent(jButtonDescargarPDF))
-                .addGap(19, 19, 19))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -632,6 +632,7 @@ public class Actualizar extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonDescargarPDF;
+    private javax.swing.JComboBox<String> jComboBoxEstado;
     private javax.swing.JComboBox<String> jComboBoxTipoMembresia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelClave;
@@ -651,7 +652,6 @@ public class Actualizar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordClave;
     private javax.swing.JTextField jTextFieldCorreo;
-    private javax.swing.JTextField jTextFieldEstado;
     private javax.swing.JTextField jTextFieldEstadoPago;
     private javax.swing.JTextField jTextFieldFechaInicio;
     private javax.swing.JTextField jTextFieldFechaNacimiento;
