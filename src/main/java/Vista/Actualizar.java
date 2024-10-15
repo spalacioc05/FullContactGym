@@ -85,6 +85,7 @@ public class Actualizar extends javax.swing.JFrame {
         jTextFieldEstado.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldEstado.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextFieldRol.setEditable(false);
         jTextFieldRol.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldRol.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -147,9 +148,11 @@ public class Actualizar extends javax.swing.JFrame {
         jLabelFechaInicio.setForeground(new java.awt.Color(0, 0, 0));
         jLabelFechaInicio.setText("Fecha de inicio");
 
+        jTextFieldFechaInicio.setEditable(false);
         jTextFieldFechaInicio.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldFechaInicio.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextFieldFechaPago.setEditable(false);
         jTextFieldFechaPago.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldFechaPago.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -164,6 +167,7 @@ public class Actualizar extends javax.swing.JFrame {
         jTextFieldFechaNacimiento.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldFechaNacimiento.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextFieldEstadoPago.setEditable(false);
         jTextFieldEstadoPago.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldEstadoPago.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -171,6 +175,7 @@ public class Actualizar extends javax.swing.JFrame {
         jLabelEstadoPago.setForeground(new java.awt.Color(0, 0, 0));
         jLabelEstadoPago.setText("Estado de pago");
 
+        jTextFieldMontoPagar.setEditable(false);
         jTextFieldMontoPagar.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldMontoPagar.setForeground(new java.awt.Color(0, 0, 0));
 

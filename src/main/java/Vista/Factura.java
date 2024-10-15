@@ -125,6 +125,7 @@ public class Factura extends javax.swing.JFrame {
 
         jScrollPane2.setBorder(null);
 
+        jTextArea2.setEditable(false);
         jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -161,24 +162,31 @@ public class Factura extends javax.swing.JFrame {
         jButtonDescargar.setText("Descargar factura");
         jButtonDescargar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jTextFieldNumFactura.setEditable(false);
         jTextFieldNumFactura.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNumFactura.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextFieldFechaEmision.setEditable(false);
         jTextFieldFechaEmision.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldFechaEmision.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextFieldFechaVencimiento.setEditable(false);
         jTextFieldFechaVencimiento.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldFechaVencimiento.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextFieldCorreo.setEditable(false);
         jTextFieldCorreo.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldCorreo.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextFieldCliente.setEditable(false);
         jTextFieldCliente.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldCliente.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextFieldNombre.setEditable(false);
         jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNombre.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextFieldId.setEditable(false);
         jTextFieldId.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldId.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -187,6 +195,7 @@ public class Factura extends javax.swing.JFrame {
         jLabelMembresia.setForeground(new java.awt.Color(0, 0, 0));
         jLabelMembresia.setText("Membresía:");
 
+        jTextFieldMembresia.setEditable(false);
         jTextFieldMembresia.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldMembresia.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -195,6 +204,7 @@ public class Factura extends javax.swing.JFrame {
         jLabelTotalPagar1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTotalPagar1.setText("Descripción Membresía:");
 
+        jTextFieldSubtotal.setEditable(false);
         jTextFieldSubtotal.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldSubtotal.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -203,6 +213,7 @@ public class Factura extends javax.swing.JFrame {
         jLabelSubtotal.setForeground(new java.awt.Color(0, 0, 0));
         jLabelSubtotal.setText("Subtotal:");
 
+        jTextFieldImpuestos.setEditable(false);
         jTextFieldImpuestos.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldImpuestos.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -216,6 +227,7 @@ public class Factura extends javax.swing.JFrame {
         jLabelTotalPagar.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTotalPagar.setText("Total a pagar:");
 
+        jTextFieldTotalPagar.setEditable(false);
         jTextFieldTotalPagar.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldTotalPagar.setForeground(new java.awt.Color(0, 0, 0));
 
