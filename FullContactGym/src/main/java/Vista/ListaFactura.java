@@ -34,11 +34,7 @@ public class ListaFactura extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         buttonFacturaCliente = new javax.swing.JButton();
-        buttonFacturaBronce = new javax.swing.JButton();
-        buttonFacturaPlata = new javax.swing.JButton();
-        buttonFacturaOro = new javax.swing.JButton();
         buttonFacturaDiaria = new javax.swing.JButton();
-        buttonFacturaMensual = new javax.swing.JButton();
         buttonFacturaAnual = new javax.swing.JButton();
         buttonFacturaTotal = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -59,35 +55,11 @@ public class ListaFactura extends javax.swing.JFrame {
             }
         });
 
-        buttonFacturaBronce.setBackground(new java.awt.Color(51, 51, 51));
-        buttonFacturaBronce.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        buttonFacturaBronce.setForeground(new java.awt.Color(204, 204, 204));
-        buttonFacturaBronce.setText("Factura bronce");
-        buttonFacturaBronce.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        buttonFacturaPlata.setBackground(new java.awt.Color(51, 51, 51));
-        buttonFacturaPlata.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        buttonFacturaPlata.setForeground(new java.awt.Color(204, 204, 204));
-        buttonFacturaPlata.setText("Factura plata");
-        buttonFacturaPlata.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        buttonFacturaOro.setBackground(new java.awt.Color(51, 51, 51));
-        buttonFacturaOro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        buttonFacturaOro.setForeground(new java.awt.Color(204, 204, 204));
-        buttonFacturaOro.setText("Factura oro");
-        buttonFacturaOro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         buttonFacturaDiaria.setBackground(new java.awt.Color(51, 51, 51));
         buttonFacturaDiaria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         buttonFacturaDiaria.setForeground(new java.awt.Color(204, 204, 204));
         buttonFacturaDiaria.setText("Factura diaria");
         buttonFacturaDiaria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        buttonFacturaMensual.setBackground(new java.awt.Color(51, 51, 51));
-        buttonFacturaMensual.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        buttonFacturaMensual.setForeground(new java.awt.Color(204, 204, 204));
-        buttonFacturaMensual.setText("Factura mensual");
-        buttonFacturaMensual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonFacturaAnual.setBackground(new java.awt.Color(51, 51, 51));
         buttonFacturaAnual.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -114,24 +86,22 @@ public class ListaFactura extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonFacturaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonFacturaBronce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonFacturaPlata, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonFacturaOro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(109, 109, 109)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonFacturaAnual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonFacturaMensual, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                    .addComponent(buttonFacturaDiaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonFacturaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(135, 135, 135))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(280, 280, 280))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addComponent(buttonFacturaCliente)
+                .addGap(109, 109, 109)
+                .addComponent(buttonFacturaDiaria, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addGap(135, 135, 135))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(buttonFacturaAnual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
+                .addComponent(buttonFacturaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(111, 111, 111))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,19 +112,11 @@ public class ListaFactura extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonFacturaCliente)
                     .addComponent(buttonFacturaDiaria))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonFacturaBronce)
-                    .addComponent(buttonFacturaMensual))
-                .addGap(73, 73, 73)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonFacturaPlata)
-                    .addComponent(buttonFacturaAnual))
-                .addGap(74, 74, 74)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonFacturaOro)
+                    .addComponent(buttonFacturaAnual)
                     .addComponent(buttonFacturaTotal))
-                .addGap(48, 48, 48))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,12 +188,8 @@ public class ListaFactura extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonFacturaAnual;
-    private javax.swing.JButton buttonFacturaBronce;
     private javax.swing.JButton buttonFacturaCliente;
     private javax.swing.JButton buttonFacturaDiaria;
-    private javax.swing.JButton buttonFacturaMensual;
-    private javax.swing.JButton buttonFacturaOro;
-    private javax.swing.JButton buttonFacturaPlata;
     private javax.swing.JButton buttonFacturaTotal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
