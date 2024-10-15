@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 
 public class GestionarPersona {
-    protected static final String FILE_PATH = "data/basededatos.csv";
+    protected static final String FILE_PATH = "data\\basededatos.csv";
 
     public static boolean isIDRegistered(String id) {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
