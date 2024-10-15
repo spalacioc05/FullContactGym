@@ -1,7 +1,5 @@
 ﻿id,clave,rol,nombre,correo,fechaNacimiento,genero,tipoMembresia,fechaInicio,fechaVencimiento,montoPagar,estadoPago,estado
-1023945871,a1b2C!,administrador,Carlos Pérez,carlos.perez@gimnacio.com,12/08/1985,Masculino,,,,,,activo
-1098765432,G5m!7y,administrador,María Ruiz,maria.ruiz@gimnacio.com,19/09/1982,Femenino,,,,,,activo
-1738495021,H9b!6s,administrador,Andrés Mejía,andres.mejia@gimnacio.com,17/01/1980,Masculino,,,,,,activo
+1111111111,12345bts#,administrador,Santiago Palacio,santiago.palacioc1@udea.edu.co,05/01/2005,Masculino,,,,,,activo
 1823456903,Z9x8@e,usuario,Ana Gómez,ana.gomez@ejemplo.com,23/11/1990,Femenino,Plata,19/09/2024,19/10/2024,45000.00,debiendo,activo
 1357892465,K2j3#5,usuario,Luis Torres,luis.torres@ejemplo.com,04/05/1987,Masculino,Bronce,19/09/2024,19/10/2024,0.00,pagado,activo
 1203948576,Q7r$1x,usuario,Pedro Sánchez,pedro.sanchez@ejemplo.com,30/12/1991,Masculino,Plata,01/04/2024,01/05/2024,45000.00,debiendo,inactivo

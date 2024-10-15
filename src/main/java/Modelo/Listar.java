@@ -27,7 +27,9 @@ import java.util.stream.Stream;
 
 public class Listar {
 
-    public void generarPDFUsuarios(String archivoCSV, String archivoPDF) {
+    protected static final String FILE_PATH = "data\\basededatos.csv";
+
+    public void generarPDFUsuarios(String archivoPDF) {
         Document document = new Document();
         try {
             PdfWriter.getInstance(document, new FileOutputStream(archivoPDF));
@@ -41,7 +43,7 @@ public class Listar {
 
             PdfPTable table = new PdfPTable(11);
             addTableHeader(table);
-            addRows(table, archivoCSV);
+            addRows(table, FILE_PATH);
 
             document.add(table);
         } catch (DocumentException | IOException e) {
@@ -53,7 +55,7 @@ public class Listar {
 
     private void addTableHeader(PdfPTable table) {
         Font fontHeader = new Font(Font.FontFamily.HELVETICA, 6, Font.BOLD);
-        Stream.of("ID", "Nombre", "Correo", "Fecha de Nacimiento", "Género", "Tipo de Membresía", "Fecha de Inicio", "Fecha Final", "Monto a Pagar", "Estado de Pago", "Estado")
+        Stream.of("ID", "Nombre", "Correo", "Fecha de Nacimiento", "Género", "Tipo de Membresía", "Fecha de Inicio", "Fecha de Vencimiento", "Monto a Pagar", "Estado de Pago", "Estado")
               .forEach(columnTitle -> {
                   PdfPCell header = new PdfPCell();
                   header.setPhrase(new Phrase(columnTitle, fontHeader));
@@ -69,6 +71,48 @@ public class Listar {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 if ("usuario".equals(data[2])) {
+                    for (int i = 0; i < data.length; i++) {
+                        if (i != 1 && i != 2) {
+                            table.addCell(new Phrase(data[i], fontRow));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void generarPDFUsuariosPorMembresia(String archivoPDF, String tipoMembresia) {
+        Document document = new Document();
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream(archivoPDF));
+            document.open();
+    
+            Font fontTitulo = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+            Paragraph titulo = new Paragraph("Lista de Usuarios - Membresía " + tipoMembresia, fontTitulo);
+            titulo.setAlignment(Element.ALIGN_CENTER);
+            document.add(titulo);
+            document.add(new Paragraph(" "));
+    
+            PdfPTable table = new PdfPTable(11);
+            addTableHeader(table);
+            addRowsByMembresia(table, FILE_PATH, tipoMembresia);
+    
+            document.add(table);
+        } catch (DocumentException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            document.close();
+        }
+    }
+    
+    private void addRowsByMembresia(PdfPTable table, String archivoCSV, String tipoMembresia) throws IOException {
+        Font fontRow = new Font(Font.FontFamily.HELVETICA, 6);
+        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
+            String line;
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                if ("usuario".equals(data[2]) && tipoMembresia.equalsIgnoreCase(data[7])) {
                     for (int i = 0; i < data.length; i++) {
                         if (i != 1 && i != 2) {
                             table.addCell(new Phrase(data[i], fontRow));

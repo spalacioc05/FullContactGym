@@ -11,12 +11,12 @@ import Controlador.SesionGlobal;
  *
  * @author HP
  */
-public class ListaFactura extends javax.swing.JFrame {
+public class ListarFactura extends javax.swing.JFrame {
 
     /**
      * Creates new form Reporte
      */
-    public ListaFactura() {
+    public ListarFactura() {
         initComponents();
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -144,9 +144,9 @@ public class ListaFactura extends javax.swing.JFrame {
             loginWindow.setVisible(true);
             this.setVisible(false);
         } else {
-        BusquedaId busquedaId = new BusquedaId();
-        busquedaId.setVisible(true);
-        this.setVisible(false);
+            BusquedaId busquedaId = new BusquedaId();
+            busquedaId.setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_buttonFacturaClienteActionPerformed
 
@@ -167,21 +167,23 @@ public class ListaFactura extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListaFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListaFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListaFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListaFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListaFactura().setVisible(true);
+                new ListarFactura().setVisible(true);
             }
         });
     }

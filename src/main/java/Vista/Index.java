@@ -165,13 +165,13 @@ public class Index extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemMembresiaActionPerformed
     
     private void jMenuItemListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarClientesActionPerformed
-        ListaClientes listaClientes = new ListaClientes();
+        ListarClientes listaClientes = new ListarClientes();
         listaClientes.setVisible(true);
         
     }//GEN-LAST:event_jMenuItemListarClientesActionPerformed
     
     private void jMenuItemListarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarFacturaActionPerformed
-        ListaFactura listaFactura = new ListaFactura();
+        ListarFactura listaFactura = new ListarFactura();
         listaFactura.setVisible(true);
     }//GEN-LAST:event_jMenuItemListarFacturaActionPerformed
     
