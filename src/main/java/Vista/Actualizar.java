@@ -479,7 +479,7 @@ public class Actualizar extends javax.swing.JFrame {
                 jTextFieldCorreo.getText().trim(),
                 jTextFieldFechaNacimiento.getText().trim(),
                 JComboBoxGenero.getSelectedItem().toString(),
-                jTextFieldEstado.getText().trim(),
+                jComboBoxEstado.getSelectedItem().toString(),
                 jComboBoxTipoMembresia.getSelectedItem().toString(),
                 jTextFieldFechaInicio.getText().trim(),
                 jTextFieldFechaPago.getText().trim(),
@@ -502,7 +502,7 @@ public class Actualizar extends javax.swing.JFrame {
                     jTextFieldCorreo.getText().trim(),
                     jTextFieldFechaNacimiento.getText().trim(),
                     JComboBoxGenero.getSelectedItem().toString(),
-                    jTextFieldEstado.getText().trim()
+                    jComboBoxEstado.getSelectedItem().toString()
                 );
 
                 if (GestionarAdministrador.actualizarAdministrador(administrador)) {
@@ -519,7 +519,7 @@ public class Actualizar extends javax.swing.JFrame {
                     jTextFieldCorreo.getText().trim(),
                     jTextFieldFechaNacimiento.getText().trim(),
                     JComboBoxGenero.getSelectedItem().toString(),
-                    jTextFieldEstado.getText().trim(),
+                    jComboBoxEstado.getSelectedItem().toString(),
                     jComboBoxTipoMembresia.getSelectedItem().toString(),
                     jTextFieldFechaInicio.getText().trim(),
                     jTextFieldFechaPago.getText().trim(),
@@ -613,7 +613,7 @@ public class Actualizar extends javax.swing.JFrame {
         jTextFieldCorreo.setText(usuario.getCorreo());
         jTextFieldFechaNacimiento.setText(usuario.getFechaNacimiento());
         JComboBoxGenero.setSelectedItem(usuario.getGenero());
-        jTextFieldEstado.setText(usuario.getEstado());
+        jComboBoxEstado.setSelectedItem(usuario.getEstado());
         jTextFieldRol.setText(usuario.getRol());
         jComboBoxTipoMembresia.setSelectedItem(usuario.getTipoMembresia());
         jTextFieldFechaInicio.setText(usuario.getFechaInicio());
@@ -628,7 +628,7 @@ public class Actualizar extends javax.swing.JFrame {
         jTextFieldCorreo.setText(administrador.getCorreo());
         jTextFieldFechaNacimiento.setText(administrador.getFechaNacimiento());
         JComboBoxGenero.setSelectedItem(administrador.getGenero());
-        jTextFieldEstado.setText(administrador.getEstado());
+        jComboBoxEstado.setSelectedItem(administrador.getEstado());
         jTextFieldRol.setText(administrador.getRol());
         jPasswordClave.setText(administrador.getClave());
     }
@@ -638,7 +638,7 @@ public class Actualizar extends javax.swing.JFrame {
         jTextFieldCorreo.setText("");
         jTextFieldFechaNacimiento.setText("");
         JComboBoxGenero.setSelectedItem("");
-        jTextFieldEstado.setText("");
+        jComboBoxEstado.setSelectedItem("");
         jTextFieldRol.setText("");
         jComboBoxTipoMembresia.setSelectedItem("");
         jTextFieldFechaInicio.setText("");
