@@ -9,6 +9,7 @@ import Controlador.GestionarUsuario;
 import Controlador.SesionGlobal;
 import Controlador.Usuario;
 import javax.swing.JOptionPane;
+import Utilidades.Verificar;
 
 /**
  *
@@ -438,6 +439,25 @@ public class Actualizar extends javax.swing.JFrame {
         this.setVisible(false);
     } else {
         String id = jTextFieldID.getText().trim();
+        String fechaNacimiento = jTextFieldFechaNacimiento.getText();
+        String fechaInicio = jTextFieldFechaInicio.getText();
+        String fechaPago = jTextFieldFechaPago.getText();
+
+        if (!Verificar.fechavalida(fechaNacimiento)){
+            JOptionPane.showMessageDialog(this, "La fecha de nacimineto tiene que estar en formato dd/mm/aaaa");
+            return;
+        }
+
+        if (!Verificar.fechavalida(fechaInicio)){
+            JOptionPane.showMessageDialog(this, "La fecha de Inicio tiene que estar en formato dd/mm/aaaa");
+            return;
+        }
+
+        if (!Verificar.fechavalida(fechaPago)){
+            JOptionPane.showMessageDialog(this, "La fecha de nacimineto tiene que estar en formato dd/mm/aaaa");
+            return;
+        }
+
         if (id.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID.");
             return;
@@ -447,6 +467,8 @@ public class Actualizar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese su ID.");
             return;
         }
+
+        
 
         if (SesionGlobal.getRolUsuario().equals("usuario")) {
             Usuario usuario = new Usuario(

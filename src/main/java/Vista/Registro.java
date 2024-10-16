@@ -7,6 +7,8 @@ package Vista;
 import Controlador.GestionarUsuario;
 import Controlador.Usuario;
 import java.awt.Color;
+import Utilidades.Verificar;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -305,6 +307,7 @@ public class Registro extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonIniciarSesionMousePressed
 
+
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         String id = jTextFieldID.getText();
         String nombre = jTextFieldNombre.getText();
@@ -320,6 +323,11 @@ public class Registro extends javax.swing.JFrame {
 
         if (id.isEmpty() || nombre.isEmpty() || correo.isEmpty() || clave.isEmpty() || genero.isEmpty() || fechaNacimiento.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (!Verificar.fechavalida(fechaNacimiento)){
+            JOptionPane.showMessageDialog(this, "La fecha de nacimineto tiene que estar en formato dd/mm/aaaa", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
