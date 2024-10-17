@@ -21,7 +21,6 @@ public class BusquedaId extends javax.swing.JFrame {
         initComponents();
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-    
     }
 
     /**
