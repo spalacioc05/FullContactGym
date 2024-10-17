@@ -4,6 +4,10 @@
  */
 package Vista;
 
+import Controlador.GestionarUsuario;
+import Modelo.Facturar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author HP
@@ -15,6 +19,9 @@ public class BusquedaId extends javax.swing.JFrame {
      */
     public BusquedaId() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+    
     }
 
     /**
@@ -99,7 +106,13 @@ public class BusquedaId extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBuscarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarIDActionPerformed
-        // TODO add your handling code here:
+        String id = jTextFieldBuscarID.getText();
+        if (GestionarUsuario.hasInvoices(id)) {
+            Facturar.generarFacturaPDF(id);
+            JOptionPane.showMessageDialog(this, "Factura generada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontraron facturas para el ID proporcionado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
     }//GEN-LAST:event_jButtonBuscarIDActionPerformed
 

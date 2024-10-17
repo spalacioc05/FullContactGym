@@ -3,14 +3,16 @@
  */
 
 package com.fullcontactgym;
-
+import Vista.Index;
 /**
  *
  * @author spala
  */
+
 public class FullContactGym {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Index index = new Index();
+        index.setVisible(true);
     }
 }

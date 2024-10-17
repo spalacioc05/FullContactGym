@@ -1,4 +1,24 @@
-numeroFactura,fechaEmision,fechaVencimiento,correo,nombre,id,tipoMembresia,totalPagar
-1000,19/10/2022,21/10/2022,pedro.sanchez@ejemplo.com,Pedro Sánchez,1203948576,Plata,45000.0
-1001,04/06/2024,19/06/2024,sandra.ortega@ejemplo.com,Sandra Ortega,1348275903,Bronce,30000.00
-1002,17/10/2024,19/08/2024,sandra.ortega@ejemplo.com,Sandra Ortega,1348275903,Bronce,30000.00
+numeroFactura,fechaEmision,fechaVencimiento,id,nombre,correo,tipoMembresia,totalPagar
+1000,19/10/2022,21/10/2022,1203948576,Pedro Sánchez,pedro.sanchez@ejemplo.com,Plata,45000.0
+1001,04/06/2024,19/06/2024,1348275903,Sandra Ortega,sandra.ortega@ejemplo.com,Bronce,30000.0
+1002,17/10/2024,19/08/2024,1348275903,Sandra Ortega,sandra.ortega@ejemplo.com,Bronce,30000.0
+1003,04/10/2024,17/10/2024,1894720365,Valeria Peña,valeria.pena@ejemplo.com,Oro,60000.0
+1004,15/02/2024,20/02/2024,1283957461,Oscar Martínez,oscar.martinez@ejemplo.com,Oro,50000.0
+1005,15/11/2023,29/11/2023,1948273059,Paola Vargas,paola.vargas@ejemplo.com,Oro,60000.0
+1006,18/10/2023,28/10/2023,1348275903,Sandra Ortega,sandra.ortega@ejemplo.com,Bronce,30000.0
+1007,10/11/2023,26/11/2023,1203948576,Pedro Sánchez,pedro.sanchez@ejemplo.com,Plata,45000.0
+1008,09/10/2024,22/10/2024,1245789632,Elena Ramírez,elena.ramirez@ejemplo.com,Oro,60000.0
+1009,09/01/2024,22/01/2024,1283957461,Oscar Martínez,oscar.martinez@ejemplo.com,Oro,60000.0
+1010,26/06/2024,02/07/2024,1948273059,Paola Vargas,paola.vargas@ejemplo.com,Oro,60000.0
+1011,27/09/2024,07/10/2024,1657384920,Sara López,sara.lopez@ejemplo.com,Plata,45000.0
+1012,23/12/2023,31/12/2023,1823456903,Ana Gómez,ana.gomez@ejemplo.com,Plata,45000.0
+1013,10/05/2024,17/05/2024,1538496207,Esteban Herrera,esteban.herrera@ejemplo.com,Oro,60000.0
+1014,01/11/2023,17/11/2023,1749285362,Marcos Castro,marcos.castro@ejemplo.com,Oro,60000.0
+1015,11/01/2024,29/01/2024,1283957461,Oscar Martínez,oscar.martinez@ejemplo.com,Oro,60000.0
+1016,21/02/2024,03/03/2024,1348275903,Sandra Ortega,sandra.ortega@ejemplo.com,Bronce,30000.0
+1017,10/03/2024,19/03/2024,1348275903,Sandra Ortega,sandra.ortega@ejemplo.com,Bronce,30000.0
+1018,27/07/2024,10/08/2024,1403985726,Raúl Martínez,raul.martinez@ejemplo.com,Oro,60000.0
+1019,03/12/2023,11/12/2023,1283957461,Oscar Martínez,oscar.martinez@ejemplo.com,Oro,60000.0
+1020,09/06/2024,28/06/2024,1573826490,María Morales,maria.morales@ejemplo.com,Oro,60000.0
+1021,19/06/2024,01/07/2024,1823456903,Ana Gómez,ana.gomez@ejemplo.com,Plata,45000.0
+1022,28/05/2024,02/06/2024,1538496207,Esteban Herrera,esteban.herrera@ejemplo.com,Oro,50000.0

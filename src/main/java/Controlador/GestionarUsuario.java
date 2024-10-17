@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  */
 
 public class GestionarUsuario extends GestionarPersona {
+    private static final String PAGOS_FILE_PATH = "data/pagos.csv";
 
     public static Usuario buscarPorIDUsuario(String id) {
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -91,5 +92,20 @@ public class GestionarUsuario extends GestionarPersona {
 
     public static boolean isIDRegistered(String id) {
         return buscarPorIDUsuario(id) != null;
+    }
+
+    public static boolean hasInvoices(String id) {
+        try (BufferedReader br = new BufferedReader(new FileReader(PAGOS_FILE_PATH))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data[3].equals(id)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

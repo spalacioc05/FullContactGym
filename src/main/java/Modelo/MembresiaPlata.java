@@ -18,7 +18,7 @@ public class MembresiaPlata implements Membresia{
         this.nombre = "Plata";
         this.precio = 45000.00;
         this.duracion = 1;
-        this.descripcion = "Acceso al gym\nAcceso a duchas\nAcceso al nutricionista\nAcceso a spa";
+        this.descripcion = "-Acceso al gym\n-Acceso a duchas\n-Acceso al nutricionista\n-Acceso a spa";
     }
 
     @Override

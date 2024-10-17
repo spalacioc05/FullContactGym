@@ -18,7 +18,7 @@ public class MembresiaOro implements Membresia{
         this.nombre = "Oro";
         this.precio = 60000.00;
         this.duracion = 1;
-        this.descripcion = "Acceso al gym\nAcceso a duchas\nAcceso al nutricionista\nAcceso a spa\nAcceso a sauna\nEntrenadores personalizados\nRutinas recomendadas";
+        this.descripcion = "-Acceso al gym\n-Acceso a duchas\n-Acceso al nutricionista\n-Acceso a spa\n-Acceso a sauna\n-Entrenadores personalizados\n-Rutinas recomendadas";
     }
 
     @Override

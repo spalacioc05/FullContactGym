@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change esta licencia
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to editar este template
  */
 package Modelo;
 
@@ -22,58 +22,58 @@ import java.util.stream.Stream;
 
 /**
  *
- * @author spala
+ * @autor spala
  */
 
 public class Listar {
 
-    protected static final String FILE_PATH = "data\\basededatos.csv";
+    protected static final String RUTA_ARCHIVO = "data\\basededatos.csv";
 
     public void generarPDFUsuarios(String archivoPDF) {
-        Document document = new Document();
+        Document documento = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream(archivoPDF));
-            document.open();
+            PdfWriter.getInstance(documento, new FileOutputStream(archivoPDF));
+            documento.open();
 
-            Font fontTitulo = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
-            Paragraph titulo = new Paragraph("Lista de Usuarios", fontTitulo);
+            Font fuenteTitulo = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+            Paragraph titulo = new Paragraph("Lista de Usuarios", fuenteTitulo);
             titulo.setAlignment(Element.ALIGN_CENTER);
-            document.add(titulo);
-            document.add(new Paragraph(" "));
+            documento.add(titulo);
+            documento.add(new Paragraph(" "));
 
-            PdfPTable table = new PdfPTable(11);
-            addTableHeader(table);
-            addRows(table, FILE_PATH);
+            PdfPTable tabla = new PdfPTable(11);
+            agregarEncabezadoTabla(tabla);
+            agregarFilas(tabla, RUTA_ARCHIVO);
 
-            document.add(table);
+            documento.add(tabla);
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
         } finally {
-            document.close();
+            documento.close();
         }
     }
 
-    private void addTableHeader(PdfPTable table) {
-        Font fontHeader = new Font(Font.FontFamily.HELVETICA, 6, Font.BOLD);
+    private void agregarEncabezadoTabla(PdfPTable tabla) {
+        Font fuenteEncabezado = new Font(Font.FontFamily.HELVETICA, 6, Font.BOLD);
         Stream.of("ID", "Nombre", "Correo", "Fecha de Nacimiento", "Género", "Tipo de Membresía", "Fecha de Inicio", "Fecha de Vencimiento", "Monto a Pagar", "Estado de Pago", "Estado")
-              .forEach(columnTitle -> {
-                  PdfPCell header = new PdfPCell();
-                  header.setPhrase(new Phrase(columnTitle, fontHeader));
-                  table.addCell(header);
+              .forEach(tituloColumna -> {
+                  PdfPCell encabezado = new PdfPCell();
+                  encabezado.setPhrase(new Phrase(tituloColumna, fuenteEncabezado));
+                  tabla.addCell(encabezado);
               });
     }
 
-    private void addRows(PdfPTable table, String archivoCSV) throws IOException {
-        Font fontRow = new Font(Font.FontFamily.HELVETICA, 6);
+    private void agregarFilas(PdfPTable tabla, String archivoCSV) throws IOException {
+        Font fuenteFila = new Font(Font.FontFamily.HELVETICA, 6);
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
-            String line;
+            String linea;
             br.readLine();
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if ("usuario".equals(data[2])) {
-                    for (int i = 0; i < data.length; i++) {
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                if ("usuario".equals(datos[2])) {
+                    for (int i = 0; i < datos.length; i++) {
                         if (i != 1 && i != 2) {
-                            table.addCell(new Phrase(data[i], fontRow));
+                            tabla.addCell(new Phrase(datos[i], fuenteFila));
                         }
                     }
                 }
@@ -82,40 +82,40 @@ public class Listar {
     }
 
     public void generarPDFUsuariosPorMembresia(String archivoPDF, String tipoMembresia) {
-        Document document = new Document();
+        Document documento = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream(archivoPDF));
-            document.open();
+            PdfWriter.getInstance(documento, new FileOutputStream(archivoPDF));
+            documento.open();
     
-            Font fontTitulo = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
-            Paragraph titulo = new Paragraph("Lista de Usuarios - Membresía " + tipoMembresia, fontTitulo);
+            Font fuenteTitulo = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+            Paragraph titulo = new Paragraph("Lista de Usuarios - Membresía " + tipoMembresia, fuenteTitulo);
             titulo.setAlignment(Element.ALIGN_CENTER);
-            document.add(titulo);
-            document.add(new Paragraph(" "));
+            documento.add(titulo);
+            documento.add(new Paragraph(" "));
     
-            PdfPTable table = new PdfPTable(11);
-            addTableHeader(table);
-            addRowsByMembresia(table, FILE_PATH, tipoMembresia);
+            PdfPTable tabla = new PdfPTable(11);
+            agregarEncabezadoTabla(tabla);
+            agregarFilasPorMembresia(tabla, RUTA_ARCHIVO, tipoMembresia);
     
-            document.add(table);
+            documento.add(tabla);
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
         } finally {
-            document.close();
+            documento.close();
         }
     }
     
-    private void addRowsByMembresia(PdfPTable table, String archivoCSV, String tipoMembresia) throws IOException {
-        Font fontRow = new Font(Font.FontFamily.HELVETICA, 6);
+    private void agregarFilasPorMembresia(PdfPTable tabla, String archivoCSV, String tipoMembresia) throws IOException {
+        Font fuenteFila = new Font(Font.FontFamily.HELVETICA, 6);
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
-            String line;
+            String linea;
             br.readLine();
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if ("usuario".equals(data[2]) && tipoMembresia.equalsIgnoreCase(data[7])) {
-                    for (int i = 0; i < data.length; i++) {
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                if ("usuario".equals(datos[2]) && tipoMembresia.equalsIgnoreCase(datos[7])) {
+                    for (int i = 0; i < datos.length; i++) {
                         if (i != 1 && i != 2) {
-                            table.addCell(new Phrase(data[i], fontRow));
+                            tabla.addCell(new Phrase(datos[i], fuenteFila));
                         }
                     }
                 }

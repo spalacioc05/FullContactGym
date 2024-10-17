@@ -6,6 +6,8 @@ package Vista;
 
 import Controlador.GestionarNavegacion;
 import Controlador.SesionGlobal;
+import Modelo.Facturar;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,9 +36,9 @@ public class ListarFactura extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         buttonFacturaCliente = new javax.swing.JButton();
-        buttonFacturaDiaria = new javax.swing.JButton();
-        buttonFacturaAnual = new javax.swing.JButton();
-        buttonFacturaTotal = new javax.swing.JButton();
+        buttonFacturasBronce = new javax.swing.JButton();
+        buttonFacturasPlata = new javax.swing.JButton();
+        buttonFacturasOro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,26 +57,36 @@ public class ListarFactura extends javax.swing.JFrame {
             }
         });
 
-        buttonFacturaDiaria.setBackground(new java.awt.Color(51, 51, 51));
-        buttonFacturaDiaria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        buttonFacturaDiaria.setForeground(new java.awt.Color(204, 204, 204));
-        buttonFacturaDiaria.setText("Factura diaria");
-        buttonFacturaDiaria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        buttonFacturaAnual.setBackground(new java.awt.Color(51, 51, 51));
-        buttonFacturaAnual.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        buttonFacturaAnual.setForeground(new java.awt.Color(204, 204, 204));
-        buttonFacturaAnual.setText("Factura anual");
-        buttonFacturaAnual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        buttonFacturaTotal.setBackground(new java.awt.Color(51, 51, 51));
-        buttonFacturaTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        buttonFacturaTotal.setForeground(new java.awt.Color(204, 204, 204));
-        buttonFacturaTotal.setText("Factura total");
-        buttonFacturaTotal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonFacturaTotal.addActionListener(new java.awt.event.ActionListener() {
+        buttonFacturasBronce.setBackground(new java.awt.Color(51, 51, 51));
+        buttonFacturasBronce.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        buttonFacturasBronce.setForeground(new java.awt.Color(204, 204, 204));
+        buttonFacturasBronce.setText("Facturas Bronce");
+        buttonFacturasBronce.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonFacturasBronce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonFacturaTotalActionPerformed(evt);
+                buttonFacturasBronceActionPerformed(evt);
+            }
+        });
+
+        buttonFacturasPlata.setBackground(new java.awt.Color(51, 51, 51));
+        buttonFacturasPlata.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        buttonFacturasPlata.setForeground(new java.awt.Color(204, 204, 204));
+        buttonFacturasPlata.setText("Facturas Plata");
+        buttonFacturasPlata.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonFacturasPlata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFacturasPlataActionPerformed(evt);
+            }
+        });
+
+        buttonFacturasOro.setBackground(new java.awt.Color(51, 51, 51));
+        buttonFacturasOro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        buttonFacturasOro.setForeground(new java.awt.Color(204, 204, 204));
+        buttonFacturasOro.setText("Facturas Oro");
+        buttonFacturasOro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonFacturasOro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFacturasOroActionPerformed(evt);
             }
         });
 
@@ -92,16 +104,14 @@ public class ListarFactura extends javax.swing.JFrame {
                 .addGap(280, 280, 280))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(139, 139, 139)
-                .addComponent(buttonFacturaCliente)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonFacturaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonFacturasPlata, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(109, 109, 109)
-                .addComponent(buttonFacturaDiaria, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonFacturasBronce, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                    .addComponent(buttonFacturasOro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(135, 135, 135))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(buttonFacturaAnual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(64, 64, 64)
-                .addComponent(buttonFacturaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(111, 111, 111))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,11 +121,11 @@ public class ListarFactura extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonFacturaCliente)
-                    .addComponent(buttonFacturaDiaria))
+                    .addComponent(buttonFacturasBronce))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonFacturaAnual)
-                    .addComponent(buttonFacturaTotal))
+                    .addComponent(buttonFacturasPlata)
+                    .addComponent(buttonFacturasOro))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
@@ -133,10 +143,6 @@ public class ListarFactura extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonFacturaTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturaTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonFacturaTotalActionPerformed
-
     private void buttonFacturaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturaClienteActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
             GestionarNavegacion.setVentanaAnterior(this);
@@ -144,11 +150,72 @@ public class ListarFactura extends javax.swing.JFrame {
             loginWindow.setVisible(true);
             this.setVisible(false);
         } else {
-            BusquedaId busquedaId = new BusquedaId();
-            busquedaId.setVisible(true);
-            this.setVisible(false);
+            String rol = SesionGlobal.getRolUsuario();
+            if ("usuario".equals(rol)) {
+                String idUsuario = SesionGlobal.getIdUsuario();
+                Facturar.generarFacturaPDF(idUsuario);
+                JOptionPane.showMessageDialog(this, "Factura generada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else if ("administrador".equals(rol)) {
+                BusquedaId busquedaId = new BusquedaId();
+                busquedaId.setVisible(true);
+                this.setVisible(false);
+            }
         }
     }//GEN-LAST:event_buttonFacturaClienteActionPerformed
+
+    private void buttonFacturasOroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturasOroActionPerformed
+        if (!SesionGlobal.isLoggedIn()) {
+            GestionarNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
+        } else {
+            String rol = SesionGlobal.getRolUsuario();
+            if ("usuario".equals(rol)) {
+                JOptionPane.showMessageDialog(this, "No tienes permisos para ver esta sección.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if ("administrador".equals(rol)) {
+                Facturar.generarFacturaMembresiaPDF("Oro");
+                JOptionPane.showMessageDialog(this, "Factura generada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_buttonFacturasOroActionPerformed
+
+    private void buttonFacturasBronceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturasBronceActionPerformed
+        if (!SesionGlobal.isLoggedIn()) {
+            GestionarNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
+        } else {
+            String rol = SesionGlobal.getRolUsuario();
+            if ("usuario".equals(rol)) {
+                JOptionPane.showMessageDialog(this, "No tienes permisos para ver esta sección.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if ("administrador".equals(rol)) {
+                Facturar.generarFacturaMembresiaPDF("Bronce");
+                JOptionPane.showMessageDialog(this, "Factura generada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_buttonFacturasBronceActionPerformed
+
+    private void buttonFacturasPlataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFacturasPlataActionPerformed
+        if (!SesionGlobal.isLoggedIn()) {
+            GestionarNavegacion.setVentanaAnterior(this);
+            Login loginWindow = new Login();
+            loginWindow.setVisible(true);
+            this.setVisible(false);
+        } else {
+            String rol = SesionGlobal.getRolUsuario();
+            if ("usuario".equals(rol)) {
+                JOptionPane.showMessageDialog(this, "No tienes permisos para ver esta sección.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if ("administrador".equals(rol)) {
+                Facturar.generarFacturaMembresiaPDF("Plata");
+                JOptionPane.showMessageDialog(this, "Factura generada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_buttonFacturasPlataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,10 +256,10 @@ public class ListarFactura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonFacturaAnual;
     private javax.swing.JButton buttonFacturaCliente;
-    private javax.swing.JButton buttonFacturaDiaria;
-    private javax.swing.JButton buttonFacturaTotal;
+    private javax.swing.JButton buttonFacturasBronce;
+    private javax.swing.JButton buttonFacturasOro;
+    private javax.swing.JButton buttonFacturasPlata;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

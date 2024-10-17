@@ -50,7 +50,7 @@ public class ListarClientes extends javax.swing.JFrame {
         jLabel1.setText("Listar clientes");
 
         jButtonListarClientes.setBackground(new java.awt.Color(51, 51, 51));
-        jButtonListarClientes.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jButtonListarClientes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonListarClientes.setForeground(new java.awt.Color(204, 204, 204));
         jButtonListarClientes.setText("Todos los Clienetes");
         jButtonListarClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -94,23 +94,19 @@ public class ListarClientes extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 163, Short.MAX_VALUE)
+                .addGap(0, 150, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(272, 272, 272))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButtonListarClientes)
-                                .addGap(33, 33, 33)
-                                .addComponent(jButtonClientesBronce))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonClientesPlata)
-                                .addGap(74, 74, 74)
-                                .addComponent(jButtonClientesOro)
-                                .addGap(15, 15, 15)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonClientesPlata, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonListarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonClientesBronce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonClientesOro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(159, 159, 159))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -126,7 +122,7 @@ public class ListarClientes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonClientesPlata)
                     .addComponent(jButtonClientesOro))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);

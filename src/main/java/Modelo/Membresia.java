@@ -14,4 +14,20 @@ package Modelo;
     double getPrecio();
     int getDuracion(); // Duración en meses
     String getDescripcion();
+
+    static String getNombreEmpresa() {
+        return "FullContact Gym";
+    }
+
+    static String getDireccion() {
+        return "Calle Principal 123\nMedellín, Colombia";
+    }
+
+    static String getTelefono() {
+        return "(123) 456-7890";
+    }
+
+    static String getCorreo() {
+        return "contacto@fullcontactgym.com";
+    }
 }
