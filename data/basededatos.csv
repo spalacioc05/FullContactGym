@@ -1,5 +1,6 @@
 ﻿id,clave,rol,nombre,correo,fechaNacimiento,genero,tipoMembresia,fechaInicio,fechaVencimiento,montoPagar,estadoPago,estado
-1111111111,12345bts#,administrador,Santiago Palacio,santiago.palacioc1@udea.edu.co,05/01/2005,Masculino,,,,,,activo
+1111,1111,administrador,Santiago Palacio,santiago.palacioc1@udea.edu.co,05/01/2005,Masculino,,,,,,activo
+2222,2222,administrador,Angelo Gallego,angelo.gallego@udea.edu.co,21/03/2005,Masculino,,,,,,activo
 1823456903,Z9x8@e,usuario,Ana Gómez,ana.gomez@ejemplo.com,23/11/1990,Femenino,Plata,19/09/2024,19/10/2024,45000.00,debiendo,activo
 1357892465,K2j3#5,usuario,Luis Torres,luis.torres@ejemplo.com,04/05/1987,Masculino,Bronce,19/09/2024,19/10/2024,0.00,pagado,activo
 1203948576,Q7r$1x,usuario,Pedro Sánchez,pedro.sanchez@ejemplo.com,30/12/1991,Masculino,Plata,01/04/2024,01/05/2024,45000.00,debiendo,inactivo
@@ -31,7 +32,7 @@
 1298473560,K7n$4l,usuario,Rafael Herrera,rafael.herrera@ejemplo.com,11/08/1990,Masculino,Bronce,01/05/2024,01/06/2024,0.00,pagado,activo
 1987346129,Z6m@3c,usuario,Beatriz Fernández,beatriz.fernandez@ejemplo.com,09/09/1994,Femenino,Oro,01/09/2024,01/10/2024,60000.00,debiendo,activo
 1529837462,C8r%6n,usuario,Diego Camacho,diego.camacho@ejemplo.com,25/02/1987,Masculino,Plata,19/09/2024,19/10/2024,45000.00,debiendo,activo
-1348275903,F5j!7l,usuario,Sandra Ortega,sandra.ortega@ejemplo.com,30/04/1995,Femenino,Bronce,01/07/2024,01/08/2024,30000.00,debiendo,activo
+1348275903,F5j!7l,usuario,Sandra Ortega,sandra.ortega@ejemplo.com,30/04/1995,Femenino,Bronce,01/07/2024,19/08/2024,0.00,pagado,activo
 1749285362,X2m@3b,usuario,Marcos Castro,marcos.castro@ejemplo.com,29/08/1990,Masculino,,,,0.00,,activo
 1894720365,R9v!1t,usuario,Valeria Peña,valeria.pena@ejemplo.com,14/09/1994,Femenino,,,,0.00,,activo
 1439582736,H1p#6f,usuario,Ignacio Rodríguez,ignacio.rodriguez@ejemplo.com,20/02/1986,Masculino,,,,0.00,,activo

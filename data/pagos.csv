@@ -1,2 +1,4 @@
-numeroFactura,fechaEmision,fechaVencimiento,correo,cliente,nombre,id,tipoMembresia,totalPagar
-1008,19/10/2022,21/10/2022,pedro.sanchez@ejemplo.com,Pedro Sánchez,Pedro,1203948576,Plata,45000.0
+numeroFactura,fechaEmision,fechaVencimiento,correo,nombre,id,tipoMembresia,totalPagar
+1000,19/10/2022,21/10/2022,pedro.sanchez@ejemplo.com,Pedro Sánchez,1203948576,Plata,45000.0
+1001,04/06/2024,19/06/2024,sandra.ortega@ejemplo.com,Sandra Ortega,1348275903,Bronce,30000.00
+1002,17/10/2024,19/08/2024,sandra.ortega@ejemplo.com,Sandra Ortega,1348275903,Bronce,30000.00

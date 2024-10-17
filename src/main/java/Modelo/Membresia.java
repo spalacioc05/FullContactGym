@@ -8,6 +8,10 @@ package Modelo;
  *
  * @author spala
  */
-public interface Membresia {
-    
+
+ public interface Membresia {
+    String getNombre();
+    double getPrecio();
+    int getDuracion(); // Duración en meses
+    String getDescripcion();
 }
