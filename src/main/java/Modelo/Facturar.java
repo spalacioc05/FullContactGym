@@ -33,7 +33,6 @@ public class Facturar {
     private static final String RUTA_ARCHIVO_PAGOS = "data/pagos.csv";
     private static final String DIRECTORIO_FACTURAS = "facturasPDF";
 
-    // Agregar página de resumen al final
     public static void generarFacturaPDF(String id) {
         // Crear el directorio si no existe
         File directorio = new File(DIRECTORIO_FACTURAS);
@@ -59,7 +58,7 @@ public class Facturar {
                 }
             }
     
-            // Agregar página de resumen
+            // Agregar página
             agregarPaginaResumen(documento, escritor, montoTotal);
     
             documento.close();

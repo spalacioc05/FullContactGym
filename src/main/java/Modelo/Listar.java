@@ -14,7 +14,9 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -50,6 +52,7 @@ public class Listar {
             e.printStackTrace();
         } finally {
             documento.close();
+            abrirPDF(archivoPDF);
         }
     }
 
@@ -102,6 +105,7 @@ public class Listar {
             e.printStackTrace();
         } finally {
             documento.close();
+            abrirPDF(archivoPDF);
         }
     }
     
@@ -120,6 +124,19 @@ public class Listar {
                     }
                 }
             }
+        }
+    }
+
+    private void abrirPDF(String archivoPDF) {
+        try {
+            File archivo = new File(archivoPDF);
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().open(archivo);
+            } else {
+                System.out.println("La acción de abrir archivos no está soportada en este sistema.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
