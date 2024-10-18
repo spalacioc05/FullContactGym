@@ -4,10 +4,13 @@
  */
 package Controlador;
 
+
 /**
  *
  * @author spala
  */
+
+
 
 public class SesionGlobal {
     private static boolean estaAutenticado = false;

@@ -6,12 +6,32 @@ package Vista;
 
 import Controlador.GestionarNavegacion;
 import Controlador.SesionGlobal;
+import Controlador.GestionarUsuario;
+import Controlador.Usuario;
+import Modelo.Facturar;
+import Modelo.MembresiaBronce;
+import Modelo.MembresiaOro;
+import Modelo.MembresiaPlata;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author HP
  */
 public class Membresia extends javax.swing.JFrame {
+
+    private static final String BASEDEDATOS_FILE_PATH = "data/basededatos.csv";
+    private static final String PAGOS_FILE_PATH = "data/pagos.csv";
 
     /**
      * Creates new form Membresia
@@ -429,11 +449,10 @@ public class Membresia extends javax.swing.JFrame {
             loginWindow.setVisible(true);
             this.setVisible(false);
         } else {
-            // Comprar membresia bronce
-            
+            comprarMembresia(new MembresiaBronce());
         }
     }//GEN-LAST:event_jButtonComprarBronceActionPerformed
-
+    
     private void jButtonComprarPlataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComprarPlataActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
             GestionarNavegacion.setVentanaAnterior(this);
@@ -441,11 +460,10 @@ public class Membresia extends javax.swing.JFrame {
             loginWindow.setVisible(true);
             this.setVisible(false);
         } else {
-            // Comprar membresia palta
-            
+            comprarMembresia(new MembresiaPlata());
         }
     }//GEN-LAST:event_jButtonComprarPlataActionPerformed
-
+    
     private void jButtonOroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOroActionPerformed
         if (!SesionGlobal.isLoggedIn()) {
             GestionarNavegacion.setVentanaAnterior(this);
@@ -453,10 +471,74 @@ public class Membresia extends javax.swing.JFrame {
             loginWindow.setVisible(true);
             this.setVisible(false);
         } else {
-            // Comprar membresia oro
-            
+            comprarMembresia(new MembresiaOro());
         }
     }//GEN-LAST:event_jButtonOroActionPerformed
+
+    private void comprarMembresia(Modelo.Membresia membresia) {
+        String idUsuario = SesionGlobal.getIdUsuario();
+        Usuario usuario = GestionarUsuario.buscarPorIDUsuario(idUsuario);
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String nombreUsuario = usuario.getNombre();
+        String correoUsuario = usuario.getCorreo();
+        LocalDate fechaInicio = LocalDate.now();
+        LocalDate fechaVencimiento = fechaInicio.plusMonths(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        // Actualizar basededatos.csv
+        usuario.setTipoMembresia(membresia.getNombre());
+        usuario.setFechaInicio(fechaInicio.format(formatter));
+        usuario.setFechaVencimiento(fechaVencimiento.format(formatter));
+        usuario.setMontoPagar(membresia.getPrecio());
+        usuario.setEstadoPago("debiendo");
+        GestionarUsuario.actualizarUsuario(usuario);
+
+        // Actualizar pagos.csv
+        registrarPago(idUsuario, nombreUsuario, correoUsuario, membresia.getNombre(), membresia.getPrecio(), fechaInicio.format(formatter), fechaVencimiento.format(formatter));
+
+        // Generar factura PDF
+        Facturar.generarFacturaPDF(idUsuario);
+    }
+
+    private void registrarPago(String id, String nombre, String correo, String tipoMembresia, double totalPagar, String fechaEmision, String fechaVencimiento) {
+        int numeroFactura = generarNumeroFactura();
+        System.out.println("Registrando pago: " + numeroFactura + "," + fechaEmision + "," + fechaVencimiento + "," + id + "," + nombre + "," + correo + "," + tipoMembresia + "," + totalPagar);
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(PAGOS_FILE_PATH, true))) {
+            bw.write(numeroFactura + "," + fechaEmision + "," + fechaVencimiento + "," + id + "," + nombre + "," + correo + "," + tipoMembresia + "," + totalPagar);
+            bw.newLine();
+            System.out.println("Pago registrado correctamente.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al registrar el pago: " + e.getMessage());
+        }
+    }
+
+    private int generarNumeroFactura() {
+        Set<Integer> numerosExistentes = new HashSet<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(PAGOS_FILE_PATH))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                numerosExistentes.add(Integer.parseInt(data[0]));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Random random = new Random();
+        int numeroFactura;
+        do {
+            numeroFactura = 1000 + random.nextInt(9000); // Genera un número aleatorio de 4 dígitos
+        } while (numerosExistentes.contains(numeroFactura));
+
+        return numeroFactura;
+    }
+
+    
 
     /**
      * @param args the command line arguments

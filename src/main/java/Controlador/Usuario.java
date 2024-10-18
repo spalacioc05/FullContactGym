@@ -26,6 +26,7 @@ public class Usuario extends Persona {
         this.estadoPago = estadoPago;
     }
 
+
     // Getters and Setters
     public String getTipoMembresia() { 
         return tipoMembresia; 
